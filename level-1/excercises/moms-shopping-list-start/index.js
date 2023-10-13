@@ -40,7 +40,10 @@ form.addEventListener("submit", (e) => {
     editButton.textContent = "Edit Item";
 
 // EXTRA CREDIT
+    editButton.addEventListener("click", (q) => {
+        document.body.createElement("form");
 
+    });
 // EXTRA CREDIT
 
 //Make sure the new list item uses the value from the form box using the
