@@ -4,7 +4,7 @@ function Employee (name, job, salary, status) {
     this.name = name;
     this.job = job;
     this.salary = salary;
-    this.status = "Full Time";
+    this.status = status;
     // this.jobstatus = function(){
     //     console.log(this.status)
     // };
