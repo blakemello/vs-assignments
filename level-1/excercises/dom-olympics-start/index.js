@@ -1,5 +1,5 @@
 var credit = document.createElement("h2")
-credit.textContent = "<span class = name>Blake</span> wrote the JavaScript"
+credit.class=name.textContent = "<span class = name>Blake</span> wrote the JavaScript"
 document.body.prepend(credit)
 credit.style.textAlign = "center";
 

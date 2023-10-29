@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    font-size: 0px;
+}
+
+.square{
+    display: inline-block;
+    height: 150px;
+    width: 100%;
+    border: 5px solid white;
+    background-color: #F5C6D6;
+}
+
+.square2{
+    display: inline-block;
+    height: 150px;
+    width: 25%;
+    border: 5px solid white;
+    background-color: #EE2E84;
+}
+
+.square3{
+    display: inline-block;
+    height: 150px;
+    width: 50%;
+    border: 5px solid white;
+    background-color: #85CFD8;
+}
+
+.square4{
+    display: inline-block;
+    height: 150px;
+    width: 75%;
+    border: 5px solid white;
+    background-color: #8DC63F;
+}
+
+.square5{
+    display: inline-block;
+    height: 150px;
+    width: 25%;
+    border: 5px solid white;
+    background-color: #E76E34;
+}
+
+/*for phones*/
+
+@media only screen and (max-width: 768px) {
+    .square {
+        width: 100%;
+    }
+    .square2 {
+        width: 100%;
+    }
+    .square3 {
+        width: 100%;
+    }
+    .square4 {
+        width: 100%;
+    }
+    .square5 {
+        width: 100%;
+    }
+}
