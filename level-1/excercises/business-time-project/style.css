@@ -1,0 +1,32 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+    margin: 10px;
+  }
+  
+  p1 {
+    text-align: right;
+  }
+  
+  p {
+    font-family: sans-serif;
+  }
+  
+  nav {
+    text-align: right;
+  }
+  
+  h1 {
+    font: "Comic Sans MS";
+    color: white;
+  }
+  
+  header {
+    background-color: darkgray;
+  }
+
+  
+  main {
+    padding-right: 5px;
+  }
