@@ -3,7 +3,7 @@ const readlineSync = require('readline-sync');
 
 // key in functionality allows to set a limit within readlinesync
 
-// [ * Player Creation * ]__________________________________________________________________
+// [ * Player * ]__________________________________________________________________
 let player = {
     name: '',
     hp: '300',
@@ -11,9 +11,7 @@ let player = {
     inventory: ['Sword', 'Bow'],
 }
 
-// const menuOptions = ["Move Foward", "Move Backward","Inventory"]
-
-// [ *Enemies Creation* ]__________________________________________________________________
+// [ *Enemies ]__________________________________________________________________
 class Enemy {
     constructor(name,hp, attack){
         this.name = name,
@@ -28,11 +26,10 @@ const enemy3 = new Enemy('Another Hunter', 300, 400)
 const enemies = [enemy1, enemy2, enemy3]
 
 
-// [ * Game Options * ]____________________________________________________________________
 let gameOver = false
 
 
-// [ Starting the game]
+// Starting game
 
 // Asking player for thier name
 const inputName = prompt.question("Hello user you're embarking upon an adnventure to Greed Island!, What would username would you prefer?")
