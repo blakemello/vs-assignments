@@ -1,3 +1,8 @@
+/*#grid-container {
+  display: grid;
+   grid-template-columns: repeat(4, 1fr); 
+}
+*/
 html, body {
     height: 100%;
     width: 100%;
@@ -13,7 +18,7 @@ html, body {
     font-family: sans-serif;
   }
   
-  nav {
+  .nav {
     text-align: right;
   }
   
@@ -30,3 +35,35 @@ html, body {
   main {
     padding-right: 5px;
   }
+
+.grid1 {
+  display: inline-block;
+}
+.grid2 {
+  display: inline-block;
+}
+.grid3 {
+  display: inline-block;
+}
+.grid4 {
+  display: inline-block;
+}
+
+/*for phones*/
+
+@media only screen and (max-width: 768px) {
+
+}
+
+/* for tablet */
+
+@media only screen and (min-width: 768px) and (max-width: 1500px){
+
+}
+
+  /* for laptop */
+
+@media only screen and (min-width: 1500px) {
+
+}
+
