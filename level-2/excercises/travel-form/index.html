@@ -7,10 +7,49 @@
     <link rel="stylesheet" href="style.css">
     <title>Travel Form</title>
 </head>
-    <body id="body" class="body">
-
-        <h1>Travel Form</h1>
-
-        <script src="main.js"></script>
-    </body>
+<body>
+    <h1>Welcome to Hunter Airlines!</h1>
+    <img src="img/airplane.jpg" alt="Airplane in the sunset" height="350" width="350">
+    <p>Please fill out the folowing form, thank you :P</p>
+    <form id="airlineForm">
+        <input type="text" name="firstName" placeholder="First Name">
+        <br>
+        <input type="text" name="lastName" placeholder="Last Name">
+        <br>
+        <input type="number" name="age" placeholder="Age">
+        <br>
+        <input type="radio" name="gender" value="male" id="male"> Male
+        <br>
+        <input type="radio" name="gender" value="female" id="female"> Female
+        <br>
+        <input type="radio" name="gender" value="other" id="other"> Other
+        <br>
+        <select name="travel-location">
+            <option value="northAmerica">North America</option>
+            <option value="southAmerica">South America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="africa">Africa</option>
+            <option value="antartica">Antartica</option>
+        </select>
+        Where would you like to travel?
+        <br>
+        Please Select All Dietary Applicable Dietary Restrictions:
+        <br>
+        <input class="diet" type="checkbox" name="vegetarian" id="vegetarian" value="vegetarian">
+        <label for="vegetarian">Vegetarian</label>
+        <br>
+        <input class="diet" type="checkbox" name="gluten" id="gluten" value="gluten free">
+        <label for="gluten">Gluten Free</label>
+        <br>
+        <input class="diet" type="checkbox" name="kosher" id="kosher" value="kosher">
+        <label for="kosher">Kosher</label>
+        <br>
+        <input class="diet" type="checkbox" name="lactose" id="lactose" value="lactose free">
+        <label for="lactose">Lactose Free</label>
+        <br>
+        <button type="button" id="submit">Submit</button>
+    </form>
+    <script src="main.js"></script>
+</body>
 </html>
