@@ -1,0 +1,30 @@
+html, body {
+    background-color: grey;
+    margin: 10px;
+  }
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+#button1{
+    background-color: #D60270;
+    font-weight: bold;
+}
+
+#button2{
+    background-color: #9B4F96;
+    font-weight: bold;
+}
+
+#button3{
+    background-color: #0038A8;
+    font-weight: bold;
+}
