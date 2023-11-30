@@ -31,7 +31,7 @@ let gameOver = false
 
 // Starting game
 
-// Asking player for thier name
+// Asking player for their name
 const inputName = prompt.question("Hello user you're embarking upon an adnventure to Greed Island!, What would username would you prefer?")
 player.name = inputName
 console.log(`Nice to meet you ${player.name} good luck in the game!`)

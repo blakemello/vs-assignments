@@ -1,6 +1,6 @@
 /*#grid-container {
   display: grid;
-   grid-template-columns: repeat(4, 1fr); 
+   grid-template-columns: repeat(3, 1fr); 
 }
 */
 html, body {
@@ -18,17 +18,21 @@ html, body {
     font-family: sans-serif;
   }
   
-  .nav {
-    text-align: right;
+  nav {
+    text-align: center;
   }
   
   h1 {
     font: "Comic Sans MS";
     color: white;
+    display: flex;
+    justify-content: center;
   }
   
   header {
     background-color: darkgray;
+    display: flex;
+    justify-content: center;
   }
 
   
