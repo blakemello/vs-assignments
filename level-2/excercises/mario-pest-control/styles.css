@@ -1,0 +1,51 @@
+html, body {
+    background-color: grey;
+    margin: 10px;
+  }
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: Luminari, fantasy; 
+    font-style: italic;
+    font-size: 100px;
+}
+
+#list {
+    display: flex;
+    justify-content: center;
+}
+
+#billing {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   
+}
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    margin: 10px;
+    background-color: whitesmoke;
+}
+
+#footer {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#totalPrice {
+    display: flex;
+    justify-content: center; 
+}
+
+p {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: crimson;
+}
