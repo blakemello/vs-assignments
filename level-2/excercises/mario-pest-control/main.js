@@ -32,7 +32,7 @@ showTotal = (event) => {
     //shows total price as a string
     const totalPrice = document.createElement('p')
     //
-    totalPrice.textContent = ("Goombas: " + goombas + " x 5 = " + goombasPrice + " Bob-ombs: " + bobombs + " x 7 = " + bobombsPrice + " Cheep-cheeps: " + cheepcheeps + " x 11 = " + cheepcheepsPrice + " = " + " For A Total Of: " + (goombasPrice + bobombsPrice + cheepcheepsPrice) + " Coins")
+    totalPrice.textContent = ("Goombas: " + goombas + " x 5 = " + goombasPrice + " Coins. " + " Bob-ombs: " + bobombs + " x 7 = " + bobombsPrice + " Coins. "+ " Cheep-cheeps: " + cheepcheeps + " x 11 = " + cheepcheepsPrice  + " Coins. " + " For A Total Of: " + (goombasPrice + bobombsPrice + cheepcheepsPrice) + " Coins")
     //
     document.getElementsByTagName("body")[0].append(totalPrice)
 };

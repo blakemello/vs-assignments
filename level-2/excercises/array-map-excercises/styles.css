@@ -1,0 +1,9 @@
+html, body {
+    background-color: grey;
+    margin: 10px;
+  }
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
