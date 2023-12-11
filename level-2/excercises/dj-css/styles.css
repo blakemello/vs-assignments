@@ -1,0 +1,107 @@
+.body {
+    background-color: grey;
+    margin: 10px;
+  }
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.boxes {
+    display: flex;
+    justify-content: center;
+}
+
+
+.square1{
+    height: 150px;
+    width: 150px;
+    background-color: purple;
+    margin: 5px;
+    display: inline-flex;
+    justify-content: center;
+    transition: background-color 1s linear 50ms, border 1s linear 50ms;
+}
+
+.square1:hover{
+    background-color: aquamarine;
+    border: solid black;
+}
+
+.square2{
+    height: 150px;
+    width: 150px;
+    background-color: purple;
+    margin: 5px;
+    display: inline-flex;
+    justify-content: center;
+    transition: border-radius 1s linear 50ms, background-color 1s linear 50ms;
+}
+
+.square2:hover{
+    border-radius: 50%;
+    background-color: chartreuse;
+}
+
+.square3{
+    height: 150px;
+    width: 150px;
+    background-color: purple;
+    margin: 5px;
+    display: inline-flex;
+    justify-content: center;
+    transition: background-color 1s linear 50ms, box-shadow 1s linear 50ms;
+}
+
+.square3:hover{
+    background-color: gold;
+    box-shadow: 10px 5px 5px red;
+}
+
+.square4{
+    height: 150px;
+    width: 150px;
+    background-color: purple;
+    margin: 5px;
+    display: inline-flex;
+    justify-content: center;
+    transition: background-color 1s linear 50ms, margin 1s linear 50ms;
+}
+
+.square4:hover{
+    background-color: hotpink;
+    margin: 50px;
+}
+
+.square5{
+    height: 150px;
+    width: 150px;
+    background-color: purple;
+    margin: 5px;
+    display: inline-flex;
+    justify-content: center;
+    transition: background-color 1s linear 50ms, position 1s linear 50ms;
+}
+
+.square5:hover{
+    background-color: orangered;
+    position: relative;
+    top: 40px;
+    left: 40px;
+}
+
+.square6{
+    height: 150px;
+    width: 150px;
+    background-color: purple;
+    margin: 5px;
+    display: inline-flex;
+    justify-content: center;
+    transition: background-color 1s linear 50ms, opacity 1s linear 50ms;
+}
+
+.square6:hover{
+    background-color: maroon;
+    opacity: .5;
+}
