@@ -52,15 +52,15 @@ const peopleArray = [
 function sortedOfAge(arr){
     // filters out all users under 18
     //arr.filter((arr) => arr.age >= 18)
-    arr.filter(function(arr){
-        arr.age >= 18
+    const over18 = arr.filter(function(arr){
+        return arr.age >= 18
     })
     //sorts list into alphepetical order
-    arr.sort((a, b) => a.lastName.localeCompare(b.lastName))
+    over18.sort((a, b) => a.lastName.localeCompare(b.lastName))
     // tells what to log
-    let result = arr.map(function(arr){
-        if (arr.age >= 18) {
-            return "<li>" + arr.firstName + " " + arr.lastName + " is " + arr.age + "</li>"
+    let result = over18.map(function(item){
+        if (item.age >= 18) {
+            return "<li>" + item.firstName + " " + item.lastName + " is " + item.age + "</li>"
         }
         else {
             //return arr.pop(arr.age < 18)
