@@ -1,0 +1,102 @@
+{
+    "menu": [
+        {
+            "appetizers": [
+                {
+                    "name": "mozzerella sticks",
+                    "ingredients": [
+                        "bread crubs",
+                        "mozzerella"
+                    ],
+                    "description": "everyone knows what a mozzerlla stick is"
+                },
+                {
+                    "name": "pork dumplings",
+                    "ingredients": [
+                        "pasta shell",
+                        "pork filling"
+                    ],
+                    "description": "delicous"
+                }
+            ],
+            "cold sandwiches": [
+                {
+                    "name": "cobb salad sub",
+                    "ingredients": [
+                        "cobb",
+                        "salad",
+                        "bread"
+                    ],
+                    "description": "a cobb salad to go"
+                },
+                {
+                    "name": "Cranberry Turkey Wraps",
+                    "ingredients": [
+                        "cranberries",
+                        "turkey",
+                        "mayo",
+                        "tortilla"
+                    ],
+                    "description": "technically not a sandwhich"
+                }
+            ],
+            "hot sandwiches": [
+                {
+                    "name": "Cuban",
+                    "ingredients": [
+                        "pork",
+                        "swiss cheese",
+                        "bread"
+                    ],
+                    "description": "a classic hot sandwhich to fill you up"
+                },
+                {
+                    "name": "Grilled Cheese",
+                    "ingredients": [
+                        "cheese",
+                        "bread"
+                    ],
+                    "description": "it's a grilled cheese"
+                }
+            ],
+            "desserts": [
+                {
+                    "name": "Ice Cream",
+                    "ingredients": [
+                        "Ice",
+                        "Cream",
+                        "Chocolate Chips"
+                    ],
+                    "description": "Rocky Road is a AMerican treasure"
+                },
+                {
+                    "name": "Lemon Bars",
+                    "ingredients": [
+                        "Lemon",
+                        "Cake Batter"
+                    ],
+                    "description": "Honestly don't know how they're made"
+                }
+            ],
+            "drinks": [
+                {
+                    "name": "Moscow Mule",
+                    "ingredients": [
+                        "Vodka",
+                        "Ginger Beer",
+                        "Lime Juice"
+                    ],
+                    "description": "Stirred and poured over ice"
+                },
+                {
+                    "name": "Water",
+                    "ingredients": [
+                        "2 Hydrogen",
+                        "1 Oxygen"
+                    ],
+                    "description": "That's the good stuff"
+                }
+            ]
+        }
+    ]
+}
