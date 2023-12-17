@@ -1,0 +1,42 @@
+html, body {
+    background-color: grey;
+    margin: 10px;
+  }
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+#todo-form {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.line-through {
+    text-decoration: line-through;
+  }
+
+#delete-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkred;
+}
+
+#done-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgreen;
+}
