@@ -5,7 +5,7 @@ class player {
         this.name = this.setName()
         this.totalCoins = 0
         // this.index = "Big"
-         this.status = "Big"
+        this.status = "Big"
         this.hasStar = false
         this.endGame = false
     }
@@ -36,7 +36,7 @@ class player {
         else if (newPlayer.status === "Big") {
             newPlayer.status = "Small"
         }
-        else if (newPlayer.status === "Small"){
+        else if (newPlayer.status === "Small") {
             newPlayer.status = "Dead"
         }
         if (newPlayer.status === "Dead") {
@@ -51,10 +51,10 @@ class player {
         if (newPlayer.status === "Powered Up") {
             console.log("You have a Star!")
         }
-        else if (newPlayer.status === "Big"){
+        else if (newPlayer.status === "Big") {
             newPlayer.status = "Powered Up"
         }
-        else if (newPlayer.status === "Small"){
+        else if (newPlayer.status === "Small") {
             newPlayer.status = "Big"
         }
         // return this.status.valueAsString
@@ -107,7 +107,7 @@ let myInterval = setInterval(function getRandomArbitrary() {
 
 //
 function myStopFunction() {
-    if(newPlayer.status === "Dead") {
+    if (newPlayer.status === "Dead") {
         newPlayer.endGame === true
     }
     if (newPlayer.endGame = true) {
