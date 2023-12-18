@@ -1,23 +1,23 @@
-let status1 = ["Powered Up", "Big", "Small", "Dead"]
+// const status1 = ["Powered Up", "Big", "Small", "Dead"]
 
 class player {
-    constructor(){
-        this.setName() 
+    constructor() {
+        this.name = this.setName()
         this.totalCoins = 0
-        this.index = 1
-        this.status = status1[this.index]
+        // this.index = "Big"
+         this.status = "Big"
         this.hasStar = false
         this.endGame = false
     }
 
-    
 
 
-     setName(namePicked) {
+
+    setName(namePicked) {
         //randomizes a 1 or a 2
         let result = Math.floor(Math.random() * 2) + 1
         // sets player name as mario or luigi based on outcome
-        if (result === 1){
+        if (result === 1) {
             namePicked = "Mario"
             this.name = namePicked
         } else {
@@ -28,42 +28,55 @@ class player {
     }
 
 
-     gotHIt(){
-        this.status = this.status.valueAsNumber - 1
+    gotHIt() {
         //this.status = status1[this.index]
-        if (this.index === 3){
-            this.endGame = true
+        if (newPlayer.status === "Powered Up") {
+            newPlayer.status = "Big"
         }
-        return this.status.valueAsString
+        else if (newPlayer.status === "Big") {
+            newPlayer.status = "Small"
+        }
+        else if (newPlayer.status === "Small"){
+            newPlayer.status = "Dead"
+        }
+        if (newPlayer.status === "Dead") {
+            myStopFunction()
+        }
+        // return this.status.valueAsString
     }
 
-     gotPoweredUp(){
-        this.status = (this.status.valueAsNumber) + 1
+    gotPoweredUp() {
         //this.status = status1[this.index]
-        if (this.index === 0) {
+
+        if (newPlayer.status === "Powered Up") {
             console.log("You have a Star!")
         }
-
-        return this.status.valueAsString
+        else if (newPlayer.status === "Big"){
+            newPlayer.status = "Powered Up"
+        }
+        else if (newPlayer.status === "Small"){
+            newPlayer.status = "Big"
+        }
+        // return this.status.valueAsString
     }
 
-    addCoin(){
+    addCoin() {
         this.totalCoins = this.totalCoins + 1
         return this.totalCoins
     }
 
 
 
- printPlayer() {
-const printName = `Name : ${this.setName()}
+    printPlayer() {
+        const printName = `Name : ${this.name}
 Status : ${this.status}
 Coins : ${this.totalCoins}
 
 `
 
-    return printName
+        return printName
 
-}
+    }
 
 }
 
@@ -76,7 +89,7 @@ let newPlayer = new player()
 //console.log(newPlayer.printS())
 
 // set the program to run on a loop
- let myInterval = setInterval(function getRandomArbitrary() {
+let myInterval = setInterval(function getRandomArbitrary() {
     let num = Math.floor(Math.random() * 3) + 0
     //console.log(num)
     if (num === 0) {
@@ -94,8 +107,11 @@ let newPlayer = new player()
 
 //
 function myStopFunction() {
+    if(newPlayer.status === "Dead") {
+        newPlayer.endGame === true
+    }
     if (newPlayer.endGame = true) {
-    clearInterval(myInterval);
-  }
+        clearInterval(myInterval);
+    }
 }
 //console.log(getRandomArbitrary)
