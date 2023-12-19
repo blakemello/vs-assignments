@@ -1,0 +1,857 @@
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One|Libre+Baskerville:400,400italic);
+
+/* icons */
+@font-face {
+    font-family: 'verdemoderna';
+    src: url('verdemoderna.eot');
+    src: url('verdemoderna.eot?#iefix') format('embedded-opentype'),
+        url('verdemoderna.woff') format('woff'),
+        url('verdemoderna.ttf') format('truetype'),
+        url('verdemoderna.svg#verdemoderna') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #325050;
+    background: #fff;
+    font-family: 'Libre Baskerville', sans-serif;
+    font-size: 70%;
+}
+
+a {
+    text-decoration: none;
+    color: #0d8ba1;
+}
+
+a:visited {
+    color: #1a5952;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+    color: #0599c2;
+}
+
+
+header {
+    height: 230px;
+    padding: 20px 0 70px 0;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url("contours.png"), url("noise.png"), url("gridlines.png"), url("huntington.jpg");
+    background-position: 0 0, 0 0, -5px -25px, 0 50%;
+    background-size: auto, auto, auto, cover;
+}
+
+
+h1 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: normal;
+    padding: 0 10%;
+    margin: 0;
+    color: #fff;
+    padding-top: 0;
+    padding-bottom: 5px;
+    border-bottom: none;
+
+}
+
+h1::before {
+    background: url(enso.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.5;
+    display: inline-block;
+    position: relative;
+    top: 20px;
+    content: "";
+    height: 80px;
+    width: 80px;
+    margin: -20px 20px 0 0;
+}
+
+h2 {
+    display: block;
+    padding: 0 10%;
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.6em;
+    font-style: italic;
+    padding-top: 5px;
+    padding-bottom: 30px;
+    border-top: none;
+    color: #ffffff99;
+}
+
+h2::before {
+    content: " ";
+    padding: 50px;
+}
+
+h3 {
+    text-transform: uppercase;
+    margin: 2em 0 0 0;
+    color: #2e484c;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.8em;
+    font-weight: normal;
+
+}
+
+p {
+    margin: 0.75em 0;
+    line-height: 2;
+}
+
+
+.page-wrapper {
+    position: relative;
+}
+
+.summary,
+.preamble {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.supporting h3 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.summary {
+    padding-top: 2em;
+}
+
+.supporting p {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.intro a:hover::before {
+    color: #fff;
+    background: #357d93;
+}
+
+div.participation,
+div.benefits {
+    background-color: #8abc9f80;
+    background-image: url(contours-opaque.png), url(gridlines-opaque.png), url(bamboo.png);
+    background-size: auto, auto, cover;
+    background-repeat: repeat, repeat, no-repeat;
+    background-attachment: scroll, scroll, fixed;
+}
+
+div.benefits {
+    margin-bottom: 3em;
+    padding-bottom: 3em;
+}
+
+div.participation p,
+div.benefits p {
+    margin-bottom: 0;
+}
+
+div.participation h3,
+div.benefits h3 {
+    padding-top: 50px;
+    margin-top: 0;
+}
+
+/* sidebar base styles */
+.sidebar {
+    background: #edf4f0;
+}
+
+.sidebar h3 {
+    display: none;
+}
+
+.sidebar a {
+    color: #607476;
+    text-decoration: none;
+}
+
+.sidebar a:hover,
+.sidebar a:focus {
+    color: #49968e;
+}
+
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+
+.design-selection ul,
+.zen-resources ul {
+    margin: 0;
+}
+
+.design-selection li,
+.zen-resources li {
+    float: left;
+    width: 50%;
+    padding: 1.5em 10%;
+    color: #c0cac3;
+    font-style: italic;
+    border-top: solid 1px #d9e3dc;
+}
+
+.design-selection li:hover,
+.design-selection li:focus {
+    background: linear-gradient(to right, #ffffff00 0%, #ffffff80 50%, #ffffff00 100%);
+}
+
+/* stacks 2 li side by side, clearing after every second one
+so they dont stack up right under each other */
+.design-selection li:nth-child(2n+1),
+.zen-resources li:nth-child(2n+1) {
+    clear: left;
+}
+
+.design-selection .design-name,
+.zen-resources a,
+li.viewall a {
+    display: block;
+    text-transform: uppercase;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.2em;
+    font-style: normal;
+    margin-bottom: 0.25em;
+}
+
+
+/* select a design */
+.design-selection h3 {
+    display: none;
+}
+
+.design-selection .designer-name {
+    color: #616857;
+    font-style: normal;
+    font-size: 0.9em;
+}
+
+/* archives navigation */
+.design-archives {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    top: 160px;
+    right: 0;
+    background: #ffffff33;
+}
+
+.design-archives h3 {
+    display: none;
+}
+
+.design-archives ul {
+    margin: 0;
+}
+
+.design-archives li {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    border: none;
+    list-style: none;
+}
+
+.design-archives li.viewall {
+    top: 0;
+    left: 0;
+    line-height: 50px;
+    width: 100%;
+    padding: 0 71px;
+}
+
+.previous,
+.next {
+    z-index: 3;
+    left: 0;
+}
+
+.next {
+    left: auto;
+    right: 0;
+}
+
+.design-archives a,
+.design-archives a:visited {
+    color: #ffffffa6;
+}
+
+.design-archives a:hover,
+.design-archives a:focus {
+    color: #fff;
+}
+
+.design-archives .previous a,
+.design-archives .next a {
+    display: block;
+    text-indent: 100%;
+    text-decoration: none;
+    overflow: hidden;
+    width: 70px;
+    height: 70px;
+    white-space: nowrap;
+}
+
+.design-archives .viewall a {
+    z-index: 2;
+    width: 100%;
+    padding: 12px 0 0 0;
+    min-height: 70px;
+    text-align: center;
+}
+
+.design-archives a::before {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    left: 0;
+    text-align: center;
+    text-indent: 0;
+    font-size: 44px;
+
+    /* icomoon.io defaults */
+    font-family: 'verdemoderna';
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 70px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.design-archives .viewall a:hover,
+.design-archives .viewall a:focus,
+.design-archives .viewall a:active,
+.design-archives a:hover::before,
+.design-archives a:focus::before,
+.design-archives a:active::before {
+    background-color: #ffffff40;
+    box-shadow: inset 0 0 10px #ffffff1a;
+}
+
+.design-archives .previous a::before {
+    content: "<";
+}
+
+.design-archives .next a::before {
+    content: ">";
+}
+
+/* resources */
+.zen-resources {
+    overflow: hidden;
+    background-color: #8abc9f80;
+    background-image: url(bamboo.png);
+}
+
+.zen-resources li {
+    border-top: solid 1px #a0b9ad;
+    font-style: normal;
+}
+
+.zen-resources li:last-child {
+    float: none;
+    width: auto;
+    border-bottom: solid 1px #a0b9ad;
+}
+
+.requirements p:nth-child(5) {
+    padding-bottom: 2em;
+}
+
+.supporting .requirements {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+    clear: both;
+    width: 100%;
+
+}
+
+.supporting .requirements a {
+    text-decoration: none;
+}
+
+.supporting .requirements a:hover,
+.supporting .requirements a:focus {
+    text-decoration: underline;
+}
+
+.supporting .requirements h3 {
+    padding-top: 0;
+}
+
+.requirements p:last-child {
+    width: auto;
+    padding: 1em 12%;
+    margin: 0;
+    color: #ffffff66;
+    background: #3e5d67;
+    background-attachment: fixed, fixed, fixed, scroll;
+    background-image: url(contours.png), url(gridlines.png), url(noise.png), url(koi.jpg);
+    background-position: 0 0, -5px -25px, 0 0, 0 50%;
+    background-repeat: repeat, repeat, repeat, no-repeat;
+    background-size: auto, auto, auto, cover;
+    font-size: 2em;
+    font-style: italic;
+    text-align: center;
+}
+
+.requirements p:last-child a {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: normal;
+}
+
+/* footer */
+footer {
+    color: #fff;
+    background: #134347;
+    clear: both;
+    padding: 3em 10%;
+    text-align: center;
+}
+
+footer a {
+    display: inline-block;
+    overflow: hidden;
+    color: #ffffff80;
+    width: 40px;
+    height: 40px;
+    margin: 0 0.5em;
+    padding: 40px 0 0 0;
+    position: relative;
+
+}
+
+footer a:hover,
+footer a:focus {
+    color: #ffffff4d;
+    text-decoration: none;
+}
+
+footer a:visited {
+    color: #ffffff33;
+}
+
+footer a::before {
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    overflow: visible;
+    font-size: 36px;
+    text-indent: 0;
+    font-family: 'verdemoderna';
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+footer a.zen-validate-html::before {
+    content: "5";
+}
+
+footer a.zen-validate-html:hover::before,
+footer a.zen-validate-html:focus::before {
+    content: "%";
+}
+
+footer a.zen-validate-css::before {
+    content: "3";
+}
+
+footer a.zen-validate-css:hover::before,
+footer a.zen-validate-css:focus::before {
+    content: "#";
+}
+
+footer a.zen-license::before {
+    content: "c";
+}
+
+footer a.zen-license:hover::before,
+footer a.zen-license:focus::before {
+    content: "C";
+}
+
+footer a.zen-accessibility::before {
+    content: "a";
+}
+
+footer a.zen-accessibility:hover::before,
+footer a.zen-accessibility:focus::before {
+    content: "A";
+}
+
+footer a.zen-github::before {
+    content: "g";
+}
+
+footer a.zen-github:hover::before,
+footer a.zen-github:focus::before {
+    content: "G";
+}
+
+@media only screen and (max-width: 500px) {
+
+    header {
+        height: 250px;
+        padding-top: 0;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    h1::before {
+        display: block;
+        margin: 0 0 0 -25px;
+        padding: 0 0 35px 0;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+
+    }
+
+    h2::before {
+        padding: 0;
+    }
+
+    footer a {
+        margin: 0 0.5em;
+    }
+
+    .design-archives {
+        top: 180px;
+    }
+
+    .design-selection li,
+    .zen-resources li {
+        padding: 1em 5%;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+    /* adjusting the site header type size */
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    /* linearizing the design list on small screens */
+    .design-selection li,
+    .zen-resources li {
+        float: none;
+        width: 100%;
+    }
+
+    /* adjusting footer type, icons */
+    .requirements p:last-child {
+        font-size: 1.4em;
+    }
+
+    footer {
+        padding: 2em 5%;
+    }
+
+    footer a {
+        margin: 0 0.5em;
+        padding: 35px 0 0 0;
+        width: 35px;
+        height: 35px;
+    }
+
+    footer a::before {
+        font-size: 32px;
+    }
+
+}
+
+p,
+li {
+    font-size: 1.2em;
+}
+
+@media only screen and (min-width: 500px) and (max-width: 1150px) {
+
+    .requirements p:last-child {
+        padding-bottom: 2em;
+        padding-top: 2em;
+    }
+
+    /* page footer */
+    footer {
+        padding: 3em 0;
+    }
+
+    footer a {
+        width: 52px;
+        height: 52px;
+        padding: 52px 0 0 0;
+        margin: 0 2em;
+    }
+
+    footer a::before {
+        font-size: 48px;
+    }
+}
+
+/* wide screen css */
+@media only screen and (min-width: 1132px) {
+    body {
+        background: #ffffff;
+        background: linear-gradient(to right, #ffffff 0%, #ffffff 66%, #e5ede8 66%, #e5ede8 100%);
+        font-size: 100%;
+    }
+
+    header {
+        width: 100%;
+        height: 310px;
+        padding: 0 10%;
+        vertical-align: middle;
+        text-align: left;
+    }
+
+    header::before,
+    header::after {
+        display: block;
+        content: " ";
+        position: absolute;
+        z-index: 3;
+        left: 0;
+        width: 100%;
+        background: #00272b33;
+    }
+
+    header::after {
+        top: 306px;
+        height: 4px;
+        background: #00272b13;
+    }
+
+    h1 {
+        display: inline-block;
+        position: relative;
+        margin: 15px 0 0 0;
+        padding: 60px 0 5px 0;
+    }
+
+    h1::before {
+        display: inline-block;
+        position: relative;
+        background: url(enso.svg);
+        background-size: 100%;
+        top: 65px;
+        content: "";
+        width: 125px;
+        height: 125px;
+        margin: -65px 40px 0 0;
+        opacity: 0.6;
+    }
+
+    h2 {
+        display: block;
+        margin: 0;
+        padding: 5px 0 60px 70px;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    /* MAIN LAYOUT */
+    nav,
+    .supporting {
+        display: inline;
+    }
+
+    .summary,
+    .preamble,
+    .supporting div,
+    .requirements h3,
+    .requirements p {
+        float: left;
+        clear: left;
+        width: 66%;
+        padding: 1em 5% 1em 10%;
+    }
+
+    .explanation h3,
+    .explanation p,
+    .participation h3,
+    .participation p,
+    .benefits h3,
+    .benefits p {
+        width: 100%;
+    }
+
+    .summary {
+        padding-top: 3.25em;
+    }
+
+    .requirements h3,
+    .requirements p {
+        margin: 0;
+        padding-bottom: 0;
+    }
+
+
+    div.participation,
+    div.benefits {
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 40%;
+        margin: 0;
+    }
+
+    div.participation,
+    div.requirements {
+        padding-top: 4em;
+    }
+
+    div.explanation,
+    div.benefits {
+        padding-bottom: 4em;
+    }
+
+    .requirements p:nth-child(5) {
+        padding-bottom: 4em;
+    }
+
+
+    .intro h3,
+    .supporting h3 {
+        margin-top: 0;
+    }
+
+    .intro p:last-child,
+    .supporting p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    .requirements p:last-child {
+        padding-bottom: 3em;
+        padding-top: 3em;
+        box-shadow: inset 0 0 100px #ffffff4d;
+    }
+
+
+    .design-selection,
+    .zen-resources {
+        position: absolute;
+        margin: 0;
+        top: 360px;
+        right: 0;
+        padding: 0 0 20px 0;
+        width: 33.3%;
+        overflow: visible;
+        background: transparent;
+    }
+
+    .sidebar li {
+        float: none;
+        width: auto;
+        margin: 0 30% 0 15%;
+        padding-left: 0;
+        padding-right: 0;
+
+    }
+
+    .design-archives {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 310px;
+        background: linear-gradient(to right, #ffffff00 0%, #ffffff00 66%, #21545f4d 66%, #21545f00 100%);
+    }
+
+    .design-archives nav {
+        position: absolute;
+        display: block;
+
+        right: 1%;
+        top: 120px;
+        width: 32%;
+    }
+
+    .design-archives li {
+        margin: 0;
+    }
+
+    .design-archives .viewall a,
+    .design-archives a::before {
+        background: #ffffff1a;
+        text-decoration: none;
+    }
+
+    .design-archives .viewall a:hover,
+    .design-archives a:hover::before {
+        background-color: #ffffff33;
+    }
+
+    .design-selection li:first-child {
+        border-top: 0;
+    }
+
+    .design-selection li:hover,
+    .design-selection li:focus {
+        background: none;
+    }
+
+    .zen-resources {
+        position: absolute;
+        width: 34%;
+        top: 1310px;
+        right: 0;
+        background: transparent;
+    }
+
+    .zen-resources h3 {
+        display: none;
+    }
+
+    .zen-resources ul {
+        width: 56%;
+        margin: 0 30% 0 15%;
+    }
+
+    .zen-resources li {
+        padding: 1.5em 0 1.25em 0;
+        margin: 0;
+    }
+
+}
