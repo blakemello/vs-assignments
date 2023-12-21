@@ -96,7 +96,7 @@ const button = document.getElementById('delete-button')
 
 deleteData = () => {
     button.addEventListener("click", function(){
-        axios.delete("https://api.vschool.io/blake/todo/" + (response.data[i].id))
+        axios.delete("https://api.vschool.io/blake/todo/" + (response.data[i]._id))
             .then(response => console.log(response.data))
             .catch(error => console.log(error))
     })

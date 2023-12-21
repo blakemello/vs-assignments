@@ -10,7 +10,18 @@ h1 {
 
 h2 {
     display: flex;
+    justify-content: left;
+}
+
+h3 {
+    display: flex;
     justify-content: center;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #todo-form {
@@ -34,9 +45,25 @@ h2 {
     background-color: darkred;
 }
 
-#done-button{
+
+ #done-button{
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    background: lightgreen;    
+} 
+
+#done-button:hover::before{
+    content: "Completed";
+}
+
+#not-done-button{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: lightgreen;
+    background: pink;
+}
+
+#not-done-button:hover::before{
+    content: "Not Completed";
 }
