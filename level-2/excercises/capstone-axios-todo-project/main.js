@@ -4,6 +4,8 @@
 
 //const { default: axios } = require("axios")
 
+//const { default: axios } = require("axios")
+
 // printHelloWorld();
 //const axios = require("axios")
 
@@ -24,7 +26,7 @@ const renderData = () => {
 }
 
 // posts the JSON file to the html
-const listData = () => {
+const listData = (data) => {
 
     clearList()
 
@@ -77,7 +79,7 @@ const addButtons = (id) => {
     deleteButton.textContent = 'Delete Item';
     document.getElementById('todo-list').appendChild(deleteButton)
     deleteButton.addEventListener('click', function(e){
-        e.stopPropagation()
+        //e.stopPropagation()
         deleteData(id)
     })
 
@@ -145,9 +147,11 @@ todoForm.addEventListener("submit", function (e) {
 
  const markComplete = (id) => {
            axios.put(myUrl + id, trueUpdates)
-           .then(response => alert("This items status has been updated to complete"))
+           .then(response => {
+            alert("This items status has been updated to complete")
+            listData()
+           })
            .catch(err => console.log(err))
-           autoRefresh()
   }
 
  const flaseUpdates = {
@@ -156,7 +160,10 @@ todoForm.addEventListener("submit", function (e) {
 
  const markIncomplete = (id) => {
      axios.put(myUrl + id, flaseUpdates)
-     .then(response => alert("This items status has been updated to incomplete"))
+     .then(response => {
+        alert("This items status has been updated to incomplete")
+        listData()
+     })
      .catch(err => console.log(err))
      autoRefresh()
  }
@@ -175,13 +182,28 @@ todoForm.addEventListener("submit", function (e) {
 
  const deleteData = (id) => {
       axios.delete(myUrl + id)
-      .then(response => alert("Item has been deleted"))
+      .then(response => {
+        alert("Item has been deleted")
+        listData()
+    })
       .catch(err => console.log(err))
-      autoRefresh()
-}
+ }
 
 const autoRefresh = () => {
     refresh(function(){
         location.reload()
     }, 500)    
 }
+
+// const numArr = [1,2,3,4,5]
+
+// function createStringElements(arr){
+//     let result = arr.map(num => {
+//         return '<p>' + num.toString() + '</p>'
+//     })
+//     return result
+// }
+
+// console.log(createStringElements(numArr))
+
+// // ["<p>1</p>", ]

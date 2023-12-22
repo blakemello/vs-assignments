@@ -15,7 +15,7 @@ h2 {
 
 h3 {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 img {
@@ -53,8 +53,10 @@ img {
     background: lightgreen;    
 } 
 
-#done-button:hover::before{
+#done-button:hover::after{
     content: "Completed";
+    position: absolute;
+    left: 40px;
 }
 
 #not-done-button{
@@ -64,6 +66,20 @@ img {
     background: pink;
 }
 
-#not-done-button:hover::before{
+#not-done-button:hover::after{
     content: "Not Completed";
+    position: absolute;
+    left: 40px;
+}
+
+#todo-form {
+    display: grid;
+    border: 1px solid black;
+    padding: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px 40px 1fr;
+}
+
+button {
+    grid-column: 1/3;
 }
