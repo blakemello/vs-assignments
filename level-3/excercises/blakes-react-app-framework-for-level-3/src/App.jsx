@@ -16,7 +16,7 @@ function App() {
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
-        <a>
+        <a href="https://www.subaru.com/motorsports.html" target='_blank'>
           <img src={subaruLogo} className="logo subabru" alt="Subabru Rally Logo" />
         </a>
       </div>
