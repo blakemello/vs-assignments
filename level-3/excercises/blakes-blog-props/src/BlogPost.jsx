@@ -7,14 +7,16 @@ export default function BlogPost(props) {
     //         <BlogPost />
     //     )
     // })
-    return(
-        <div>
-           <span>{props.title}</span> 
-           <br></br>
-           <span>{props.subTitle}</span>
-           <br></br>
-           <span>{props.author}</span>
-           <span>{props.date}</span>
+    return (
+        <div className='bloglist'>
+            <h2>{props.title}</h2>
+            <br></br>
+            {props.subTitle && <h4>{props.subTitle}</h4>}
+            <br></br>
+            <p>{props.author}</p>
+            <p>{props.date}</p>
         </div>
     )
 }
+
+console.log()

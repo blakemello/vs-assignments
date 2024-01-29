@@ -7,9 +7,6 @@ export default function Header() {
             <div>
                 <Navbar />
             </div>
-            <div>
-                <h1>Header Text</h1>
-            </div>
         </div>
     )
 }
