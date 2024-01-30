@@ -5,29 +5,34 @@ export default function DiceBox() {
 
   const [randomNumber, setRandomNumber] = useState([null, null, null, null, null])
 
-  function newNumbers() { setRandomNumber(randomNumber.map([Math.floor(Math.random()*6+1)])) }
+  function newNumbers() { setRandomNumber(randomNumber.map(randomNumber => [Math.floor(Math.random()*6+1)])) }
 
-  function Test() {
-    setRandomNumber(randomNumber => {
-      return [[Math.floor(Math.random()*6+1)], [Math.floor(Math.random()*6+1)], [Math.floor(Math.random()*6+1)], [Math.floor(Math.random()*6+1)], [Math.floor(Math.random()*6+1)]]
-    })
-  }
+  // function Test() {
+  //   setRandomNumber(randomNumber => {
+  //     return [[Math.floor(Math.random()*6+1)], [Math.floor(Math.random()*6+1)], [Math.floor(Math.random()*6+1)], [Math.floor(Math.random()*6+1)], [Math.floor(Math.random()*6+1)]]
+  //   })
+  // }
 
-  function Test2() {
-    setRandomNumber(randomNumber => {
-      return [randomNumber.map(6)]
-    })
-  }
+  // function Test2() {
+  //   setRandomNumber.map(randomNumber => {
+  //     return [[Math.floor(Math.random()*6+1)]]
+  //   })
+  // }
 
   return (
     <div>
-    <div>{randomNumber}</div>
-    <div>
       <div>
-        {setRandomNumber}
+        <h1>React Dice Roll</h1>
       </div>
-    <button onClick={Test}>Re-roll</button>
-    </div>
+      <div>{randomNumber}</div>
+      <div>
+        <div>
+          {setRandomNumber}
+        </div>
+        <div>
+          <button onClick={newNumbers}>Re-roll</button>
+        </div>
+      </div>
     </div>
   )
 }
