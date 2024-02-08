@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+ #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+.box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid purple;
+    padding: 5px;
+    margin: 20px auto;
+    display:inline-flex;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 40px 40px 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
