@@ -3,6 +3,8 @@
 
  export default function TestBox(props) {
 
+    console.log(props.on)
+
      const styles = {
          backgroundColor: props.on ? "#FF0000" : "#808080"
      }
@@ -11,7 +13,6 @@
          <div
          className='box'
          style={styles}
-         onClick={props.handleClick}
          >
 
          </div>
