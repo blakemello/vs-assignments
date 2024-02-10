@@ -9,21 +9,78 @@
     
 
     
-     function handleCLick(id) {
-         alert("broken")
+     function smallTimeClick(id) {
+         setSquares(prevSquares => {
+            return prevSquares.map((square) => {
+                return square.color === "white" ? {...square, color: "black"} : {...square, color: "white"}
+            })
+         })
      }
     
+     function partyClick(id) {
+         setSquares(prevSquares => {
+            return prevSquares.map((square) => {
+                return square.id === 1 ? {...square, color: "purple"} : square
+            })
+         })
+    }
+    function partyClick2(id) {
+         setSquares(prevSquares => {
+            return prevSquares.map((square) => {
+                return square.id === 2 ? {...square, color: "purple"} : square
+            })
+         })
+    }
+
+    function partyClick3() {
+        partyClick();
+        partyClick2();
+    }
+
+    function bottomLeftClick(id) {
+        setSquares(prevSquares => {
+           return prevSquares.map((square) => {
+               return square.id === 3 ? {...square, color: "blue"} : square
+           })
+        })
+    }
+   
+    function bottomRightClick(id) {
+        setSquares(prevSquares => {
+           return prevSquares.map((square) => {
+               return square.id === 4 ? {...square, color: "blue"} : square
+           })
+        })
+    }
+   
+    function resetClick(id) {
+        setSquares(prevSquares => {
+           return prevSquares.map((square) => {
+               return square.color === "white" ? square : {...square, color: "white"}
+           })
+        })
+    }
+   
     
          const squareElements = squares.map(square => (
              <TestBox 
-                 handleCLick={() => handleCLick(square.id)}
+                 key={square.id}
+                 on={square.on}
+                 color={square.color}
+                 
              />
          ))
 
      return (
          <main>
-             <div>{squareElements}</div>
-             <button onClick={handleCLick}>Test</button>
+             <div className='gridbox'>{squareElements}</div>
+             <button onClick={smallTimeClick}>Small time DJ</button>
+             <button onClick={partyClick3}>Party DJ</button>
+             <br></br>
+             <button onClick={bottomLeftClick}>Left DJ</button>
+             <button onClick={bottomRightClick}>Right DJ</button>
+             <br></br>
+             <button onClick={resetClick}>Reset</button>             
          </main>
      )
  }

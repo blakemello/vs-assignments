@@ -3,10 +3,9 @@
 
  export default function TestBox(props) {
 
-    console.log(props.on)
 
      const styles = {
-         backgroundColor: props.on ? "#FF0000" : "#808080"
+         backgroundColor: props.color
      }
 
      return (

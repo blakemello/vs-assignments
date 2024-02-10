@@ -3,18 +3,22 @@
  export default [
    {
        id: 1,
-       on: true, 
+       on: true,
+       color: "white" 
    },   
    {
        id: 2,
-       on: true, 
+       on: true,
+       color: "white" 
    },   
    {
        id: 3,
-       on: false, 
+       on: false,
+       color: "white" 
    },   
    {
        id: 4,
        on: true,
+       color: "white"
    },   
  ]
