@@ -33,7 +33,7 @@ export default function Test() {
       event.preventDefault()
       // clearList()
       setAllSubmissions(prevAllSubmissions => {
-        return [...prevAllSubmissions, `Badge:`, ``, `Name ${formData.firstName + " " + formData.lastName}`, `Phone: ${formData.phone}`, `Place of birth: ${formData.birthplace}`, `Favorite food: ${formData.favortiteFood}`, `Email: ${formData.email}`, ``, `${formData.aboutYou}`]
+        return [...prevAllSubmissions, `Badge:`, ``, `Name ${formData.firstName + " " + formData.lastName}`, `Phone: ${formData.phone}`, `Place of birth: ${formData.birthplace}`, `Favorite food: ${formData.favortiteFood}`, `Email: ${formData.email}`, ``, `${formData.aboutYou}`, ``]
       })
       setFormData({
         firstName: "",
@@ -93,7 +93,7 @@ export default function Test() {
             <br></br>
             <input
               type="number"
-              placeholder="Phone Number xxxxxxxxx No Hypens"
+              placeholder="Phone Number xxxxxxxxx"
               name='phone'
               onChange={handleChange}
               value={formData.phone}
@@ -125,6 +125,7 @@ export default function Test() {
             <button type='submit'>Submit</button>
           </form>
           <div className='submitted--badge'>
+            {/* {addSubmissions && <div>Badge</div>} */}
             {addSubmissions}
           </div>
         </div>
