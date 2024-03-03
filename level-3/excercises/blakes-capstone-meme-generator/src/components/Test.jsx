@@ -1,15 +1,10 @@
-import { useState, useEffect, useId } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Meme() {
-
-    // renders the intial meme as a blank image below the input form
-
-    
-
     const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
-        randomImage: "http://i.imgflip.com/1bij.jpg",
+        randomImage: "http://i.imgflip.com/1bij.jpg" 
     })
 
     const [allMemes, setAllMemes] = useState([])
@@ -28,45 +23,51 @@ export default function Meme() {
         const url = allMemes[randomNumber].url
         setMeme(prevMeme => ({
             ...prevMeme,
-            randomImage: url,
+            randomImage: url
         }))
     }
 
     const [memeList, setMemeList] = useState([])
 
     function handleSubmit(event) {
-        const id = () => Date.now()
         event.preventDefault()
         setMemeList(prevMemeList => {
-            return [...prevMemeList,
-            <div id={id}>
-            <h2 className="finished--toptext" >{meme.topText}</h2>, 
-            <img src={meme.randomImage} className="meme--image" id={meme.id}/>, 
+            return [...prevMemeList, 
+            <h2 className="finished--toptext">{meme.topText}</h2>, 
+            <img src={meme.randomImage} className="meme--image" />, 
             <h2 className="finished--bottomtext">{meme.bottomText}</h2>, 
             <button className='edit--button' onClick={editMeme}>Edit Meme</button>, 
             <button className='delete--button' onClick={deleteMeme}>Delete Meme</button>,
-            </div>
+            {meme, id: `${meme}-${Date.now}`}
         ]
         })
         setMeme({
             topText: "",
             bottomText: "",
-            randomImage: "http://i.imgflip.com/1bij.jpg",
+            randomImage: "http://i.imgflip.com/1bij.jpg"
         })
+
+        // if(editedMeme) {
+        //     const edited = memeList.find((i) => i.id === editedMeme)
+        //     const updatedMeme = memeList.map((t) => t.id === edited.id ? t= {id: t.id, meme} : {id: t.id, meme: t.meme})
+        //     setMemeList(updatedMeme)
+        //     setEditedMeme(0)
+        //     return
+        // }
     }
 
-    const listedMemes = memeList.map(submission =>  <div key={[0]}>{submission}</div>)
+    const listedMemes = memeList.map(submission =>  <div key={submission}>{submission}</div>)
 
-    console.log(memeList)
-
-
+    const [editedMeme, setEditedMeme] = useState(0)
 
     function editMeme(id) {
-        const edited = memeList 
+        const edited = memeList.find((i) => i.id === id);
+        setMeme(edited.meme)
+        setEditedMeme(id)
     }
 
     function deleteMeme(id) {
-       const newList = memeList.filter((item) => item.id !== id)
+       const newList = memeList.filter((submission) => submission.id !== id)
        setMemeList([...newList])
     }
     
