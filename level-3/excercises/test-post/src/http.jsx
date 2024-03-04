@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseUrl = "https://api.vschool.io/blakemello"
+const baseUrl = "https://api.imgflip.com/get_memes"
 
 
 export const getAllItems = () => axios.get(baseUrl + '/todo').then(res => res.data);

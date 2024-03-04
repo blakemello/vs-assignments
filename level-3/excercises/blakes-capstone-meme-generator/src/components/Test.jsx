@@ -38,7 +38,7 @@ export default function Meme() {
             <h2 className="finished--bottomtext">{meme.bottomText}</h2>, 
             <button className='edit--button' onClick={editMeme}>Edit Meme</button>, 
             <button className='delete--button' onClick={deleteMeme}>Delete Meme</button>,
-            {meme, id: `${meme}-${Date.now}`}
+            {meme, id: `${meme}-${Math.floor(Math.random() * 99)}`}
         ]
         })
         setMeme({

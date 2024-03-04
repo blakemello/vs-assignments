@@ -1,41 +1,53 @@
-import { useEffect, useState } from "react";
-import { List } from "./components/List"
-import { NewForm } from "./components/NewForm";
-import { addItem, deleteItem, editItem, getAllItems } from "./https";
+import { useState, useEffect } from 'react'
+import viteLogo from '/vite.svg'
+import Header from "./components/Header"
+import { MemeForm } from './components/MemeForm'
+import './App.css'
+import { MemeList } from './components/MemeList'
+import { editMeme } from './http'
 
-function App() {
+export default function App() {
 
-  const [items, setItems] = useState([]);
+  const [memeList, setMemeList] = useState([])
 
-  const initializeItems = () => {
-    getAllItems().then(items => setItems(items))
-  }
+  // const [editedMeme, setEditedMeme] = useState(0)
 
-  const handleAddItem = (newItem) => {
-    addItem(newItem).then(savedItem => setItems(prev => [...prev, savedItem]))
-  }
+  console.log(memeList)
 
-  const handleEditItem = (id, updatedFields) => {
-    editItem(id, updatedFields).then(savedItem => {
-      setItems(prev => prev.map(item => item._id === id ? savedItem : item))
+  
+  const handleEditItem = (id) => {
+    editMeme(id).then(savedItem => {
+      setMemeList(prev => prev.map(item => item._id === id ? savedItem : item))
     })
   }
-
+  
   const handleDeleteItem = (id) => {
-    deleteItem(id).then(() => setItems(prev => prev.filter(item => item._id !== id)))
+    const newList = memeList.filter((submission) => submission.id !== id)
+    setMemeList([...newList])
   }
-
-  useEffect(() => {
-    initializeItems();
-  }, [])
-
-
+  
   return (
     <div>
-      <NewForm addItem={handleAddItem} />
-      <List items={items} editItem={handleEditItem} deleteItem={handleDeleteItem}/>
-    </div>
+          <Header />
+          <MemeForm setMemeList={setMemeList} />
+          <h3>Meme List:</h3>
+          <MemeList items={memeList} editMeme={handleEditItem} deleteMeme={handleDeleteItem}/>
+      </div>
   )
 }
 
-export default App
+// const edited = memeList.find((submission) => submission.id === id);
+// setMemeList(edited.MemeList)
+// setEditedMeme(id) 
+
+// const memeListElements = memeList.map(meme => {
+//   return [
+//     <div>
+//           <h2 className="finished--toptext" >{meme.topText}</h2> 
+//           <img src={meme.randomImage} className="meme--image" id={meme.id}/> 
+//           <h2 className="finished--bottomtext">{meme.bottomText}</h2> 
+//           <button className='edit--button' onClick={editMeme}>Edit Meme</button> 
+//           <button className='delete--button' onClick={deleteMeme}>Delete Meme</button>
+//     </div>
+//   ]
+// })

@@ -2,7 +2,7 @@ import { useState, useEffect, useId } from 'react'
 
 export default function Meme() {
 
-    // renders the intial meme as a blank image below the input form
+    // renders the intial meme as a default image below the input form
 
     
 
@@ -10,43 +10,40 @@ export default function Meme() {
         topText: "",
         bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg",
+        id: ''
     })
 
     const [allMemes, setAllMemes] = useState([])
         
     useEffect(() => {
-        async function getMemes() {
-            const res = await fetch("https://api.imgflip.com/get_memes")
-            const data = await res.json()
-            setAllMemes(data.data.memes)
-        }
-        getMemes()
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => res.json())
+            .then(data => setAllMemes(data.data.memes))
     }, [])
+    
     
     function getMemeImage() {
         const randomNumber = Math.floor(Math.random() * allMemes.length)
-        const url = allMemes[randomNumber].url
+        const random = allMemes[randomNumber]
         setMeme(prevMeme => ({
             ...prevMeme,
-            randomImage: url,
+            randomImage: random.url,
+            id: random.id
         }))
     }
 
     const [memeList, setMemeList] = useState([])
 
     function handleSubmit(event) {
-        const id = () => Date.now()
         event.preventDefault()
         setMemeList(prevMemeList => {
             return [...prevMemeList,
-            <div id={id}>
             <h2 className="finished--toptext" >{meme.topText}</h2>, 
             <img src={meme.randomImage} className="meme--image" id={meme.id}/>, 
             <h2 className="finished--bottomtext">{meme.bottomText}</h2>, 
             <button className='edit--button' onClick={editMeme}>Edit Meme</button>, 
             <button className='delete--button' onClick={deleteMeme}>Delete Meme</button>,
-            </div>
-        ]
+        ] 
         })
         setMeme({
             topText: "",
@@ -55,14 +52,16 @@ export default function Meme() {
         })
     }
 
-    const listedMemes = memeList.map(submission =>  <div key={[0]}>{submission}</div>)
+    const listedMemes = memeList.map(submission =>  <div key={submission.id}>{submission}</div>)
 
-    console.log(memeList)
+    //console.log(listedMemes[0].props.children.props.id)
 
 
 
     function editMeme(id) {
-        const edited = memeList 
+        const edited = memeList.find((i) => i.id === id);
+        setMeme(edited.meme)
+        setEditedMeme(id)
     }
 
     function deleteMeme(id) {
@@ -78,8 +77,10 @@ export default function Meme() {
         }))
     }
     
+// display for whole page
     return (
         <main>
+            {/* Shows the form for the meme edit */}
             <div className="form">
                 <input 
                     type="text"
@@ -110,13 +111,16 @@ export default function Meme() {
                 <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
             <div>
+                {/* Submits the meme to the list */}
             <button 
+                    type='submit'
                     className="form--button"
                     onClick={handleSubmit}
                 >
                     Submit Meme
                 </button>
             </div>
+            {/* Displays the list on the DOM */}
             <div className='meme--list'>
                 Meme List: 
                 {listedMemes}
