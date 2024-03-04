@@ -1,7 +1,7 @@
 import { MemeItem } from "./MemeItem"
 
 export const MemeList = (props) => {
-
+    console.log(props.meme)
     return (
         <div>
             {props.items.map(item => (
@@ -14,5 +14,6 @@ export const MemeList = (props) => {
             ))}
         </div>
     )
+    
 
 }

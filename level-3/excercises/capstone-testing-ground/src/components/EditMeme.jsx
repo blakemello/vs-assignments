@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export const EditMeme = (props) => {
 
 const [meme, setMeme] = useState({
     topText: props.topText,
     bottomText: props.bottomText,
-    randomImage: "http://i.imgflip.com/1bij.jpg",
+    randomImage: props.randomImage,
+    id: props.id
 })
 
 function handleChange(event) {
@@ -16,14 +18,13 @@ function handleChange(event) {
     }))
 }
 
+
+
+
 function handleSubmit(event) {
     event.preventDefault()
-    props.editMeme(props.id, meme)
-    setMeme({
-        topText: "",
-        bottomText: "",
-        randomImage: "http://i.imgflip.com/1bij.jpg",
-    })
+    props.editMeme(meme)
+    // console.log(meme)
 }
 
 const [allMemes, setAllMemes] = useState([])

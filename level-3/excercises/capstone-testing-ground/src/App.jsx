@@ -4,20 +4,20 @@ import Header from "./components/Header"
 import { MemeForm } from './components/MemeForm'
 import './App.css'
 import { MemeList } from './components/MemeList'
-import { editMeme } from './http'
+
 
 export default function App() {
 
   const [memeList, setMemeList] = useState([])
 
-  // const [editedMeme, setEditedMeme] = useState(0)
+  const [editedMeme, setEditedMeme] = useState(null)
 
-  console.log(memeList)
-
+  // console.log(memeList)
   
-  const handleEditItem = (id) => {
-    editMeme(id).then(savedItem => {
-      setMemeList(prev => prev.map(item => item._id === id ? savedItem : item))
+
+  const handleEditItem = (id, edits) => {
+    setMemeList((prevMemeList) => {
+      return prevMemeList.map((meme) => meme.id === id ? edits : meme)
     })
   }
   
@@ -35,6 +35,15 @@ export default function App() {
       </div>
   )
 }
+
+// const updatedMeme = memeList.find((sumbision) => submision.id === id)
+// console.log(updatedMeme)
+//  const updatedList = memeList.map((i) => i.id === updatedMeme.id ? i ={id: i.id, meme} : {id: i.id, meme: i.meme})
+//  setMemeList(updatedList)
+//  setEditedMeme(null)
+
+// const updatedMeme = memeList.find((submission) => submission.id === id)
+// setMemeList()
 
 // const edited = memeList.find((submission) => submission.id === id);
 // setMemeList(edited.MemeList)
