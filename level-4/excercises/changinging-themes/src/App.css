@@ -1,0 +1,138 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.Default-Header {
+  display: flex;
+  align-items: center;
+  color: white;
+  background: linear-gradient(90deg, #800080 1.18%, #800000 100%);
+  width: 100%;
+  justify-content: space-around;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+.Default-Body {
+  background-color: aqua;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.Default-Footer {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: darkgrey;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.Light-Header {
+  display: flex;
+  align-items: center;
+  color: white;
+  background: linear-gradient(90deg, #FFFFFF 1.18%, #D3D3D3 100%);
+  width: 100%;
+  justify-content: space-around;
+  top: 0;
+  left: 0;
+  position: fixed;
+  color: black;
+}
+
+.Light-Body {
+  background-color: white;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  color: black;
+}
+
+.Light-Footer {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: darkgrey;
+}
+
+.Dark-Header {
+  display: flex;
+  align-items: center;
+  color: white;
+  background: linear-gradient(90deg, #242424 1.18%, darkgrey 100%);
+  width: 100%;
+  justify-content: space-around;
+  top: 0;
+  left: 0;
+  position: fixed;
+  color: maroon;
+}
+
+.Dark-Body {
+  background-color: #242424;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  color: cyan;
+}
+
+.Dark-Footer {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #242424;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: lightsalmon;
+}
