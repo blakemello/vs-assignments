@@ -17,10 +17,12 @@ export default function Body(props) {
         <div className={`${color}-Body`}>
             <h1>You are now using {color} Theme</h1>
             <button onClick={toggleTheme}>Change Theme</button>
-            <label for='themes'>Choose Theme:</label>
+            <br></br>
+            <label htmlFor=''>Choose Theme:
             <select id='themes' onChange={handleTheme}>
                 {options.map(option => (<option>{option.label}</option>))}
             </select>
+            </label>
         </div>
         
     )
