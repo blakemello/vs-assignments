@@ -1,15 +1,20 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
+import AboutDetails from './components/AboutDetails'
 import DogFacts from './components/DogFacts'
 import CatFacts from './components/CatFacts'
-import { ThemeContextProvider } from './ThemeContext'
+import { ThemeContext, ThemeContextProvider } from './ThemeContext'
 
-function App() {
+function App(props) {
+
+  //const { toggleTheme } = useContext(ThemeContext)
+
+  //console.log(Test)
 
   return (
     <ThemeContextProvider>
@@ -27,6 +32,8 @@ function App() {
         <Link to="/about" style={{padding: 5}}>
           About
         </Link>
+        <br></br>
+        {/* <button>Change Theme</button> */}
       </nav>
 
       <Routes>
@@ -34,6 +41,7 @@ function App() {
         <Route path ="/dogfacts" element={<DogFacts />} />
         <Route path ="/catfacts" element={<CatFacts />} />
         <Route path ="/about" element={<About />} />
+        <Route path='about/:aboutId' element={<AboutDetails />} />
       </Routes>
 
     </Router>

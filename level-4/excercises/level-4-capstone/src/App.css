@@ -18,6 +18,46 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.light-home {
+  color: black;
+  background-color: white;
+}
+
+.light-dogfacts {
+  color: black;
+  background-color: white;
+}
+
+.light-catfacts {
+  color: black;
+  background-color: white;
+}
+
+.light-about {
+  color: black;
+  background-color: white;
+}
+
+.dark-home {
+  color: lightsalmon;
+  background-color: #242424;
+}
+
+.dark-dogfacts {
+  color: lightsalmon;
+  background-color: #242424;
+}
+
+.dark-catfacts {
+  color: lightsalmon;
+  background-color: #242424;
+}
+
+.dark-about {
+  color: lightsalmon;
+  background-color: #242424;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

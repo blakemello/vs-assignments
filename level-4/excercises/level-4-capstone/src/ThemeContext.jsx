@@ -9,15 +9,10 @@ function ThemeContextProvider(props) {
         setColor(prevColor => prevColor === "dark" ? "light" : "dark")
     }
 
-    const handleTheme = (e) => {
-        setColor(e.target.value)
-    }
-
     return(
         <ThemeContext.Provider value={{
             color: color, 
             toggleTheme: toggleTheme,
-            handleTheme: handleTheme
         }}>
            {props.children}
         </ThemeContext.Provider>
