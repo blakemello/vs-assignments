@@ -6,7 +6,7 @@ import aboutData from './AboutData'
 
 export default function About(props) {
     
-    const {color, toggleTheme, handleTheme} = useContext(ThemeContext)
+    const {color, toggleTheme, toggleBackground} = useContext(ThemeContext)
 
     const abouts = aboutData.map(about => (
         <h3 key={about._id}>
@@ -18,15 +18,17 @@ export default function About(props) {
 
     const navigate = useNavigate()
 
+    const handleClick = (e) => {toggleTheme(); toggleBackground()}
+
     return(
         <div className={`${color}-about`}>
-            <button onClick={toggleTheme}>Toggle Theme</button>
+            <button onClick={handleClick}>Toggle Theme</button>
             <h1>
                 About Us!
             </h1>
             {abouts}
             <br></br>
-            <button onClick={() => navigate(-1)}>Back</button>
+            {/* <button onClick={() => navigate(-1)}>Back</button> */}
         </div>
     )
 }

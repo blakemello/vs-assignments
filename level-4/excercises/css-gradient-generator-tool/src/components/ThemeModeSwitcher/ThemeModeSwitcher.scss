@@ -1,0 +1,95 @@
+@use '@styles/abstracts' as *;
+
+$switcher-animation-time: 700ms;
+$switcher-animation-timing-function: linear;
+
+.theme-mode-switcher {
+  // ...
+  @include mq(extraSmall) {
+    scale: 1;
+  }
+
+  &__circle {
+  // ...
+  }
+
+  &__icon {
+    width: 22px;
+    height: 22px;
+    opacity: 0;
+
+    &.moon {
+      scale: 0.9;
+    }
+
+    &.sun {
+      transform-origin: 12px 12px;
+      scale: 1.1;
+    }
+
+    .sun-circle {
+      transform-origin: 12px 12px;
+      scale: 0.9;
+    }
+
+    .sun-beam {
+      opacity: 0;
+      transform-origin: 12px 12px;
+    }
+  }
+}
+
+.theme-mode-switcher {
+    // ...
+    &.dark {
+      #{$this}__icon.moon {
+        animation: moon-appear $switcher-animation-time forwards $switcher-animation-timing-function;
+      }
+  
+      #{$this}__icon.sun {
+        animation: sun-disappear $switcher-animation-time forwards $switcher-animation-timing-function;
+  
+        .sun-beam {
+          animation: sun-beam-disappear $switcher-animation-time forwards $switcher-animation-timing-function;
+        }
+      }
+    }
+    // ...
+  }
+
+  @keyframes moon-appear {
+    65% {
+      opacity: 0;
+      translate: 0;
+      rotate: 0;
+    }
+    70% {
+      opacity: 1;
+      translate: 4px;
+      rotate: -20deg;
+    }
+    80% {
+      rotate: 0;
+    }
+    90% {
+      rotate: -5deg;
+    }
+    100% {
+      opacity: 1;
+      translate: 0;
+      rotate: -10deg;
+    }
+  }
+  
+  @keyframes moon-disappear {
+    0% {
+      opacity: 1;
+    }
+    20% {
+      rotate: 20deg;
+      opacity: 1;
+    }
+    22%, 100% {
+      opacity: 0;
+    }
+  }

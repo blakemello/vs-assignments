@@ -5,7 +5,7 @@ import { ThemeContext } from '../ThemeContext'
 
 export default function CatFacts(props) {
 
-    const { color, toggleTheme } = useContext(ThemeContext)
+    const { color, toggleTheme, toggleBackground } = useContext(ThemeContext)
 
     const [catFact, setCatFact] = useState('')
 
@@ -24,6 +24,8 @@ export default function CatFacts(props) {
     }
 
     const navigate = useNavigate()
+
+    const handleClick = (e) => {toggleTheme(); toggleBackground()}
     
     // useEffect(function() {
     //     fetch(`https://cat-fact.herokuapp.com/facts/`)
@@ -41,17 +43,19 @@ export default function CatFacts(props) {
 
     return(
         <div className={`${color}-catfacts`}>
-            <button onClick={toggleTheme}>Toggle Theme</button>
+            <button onClick={handleClick}>Toggle Theme</button>
             <h1>
                 Here's a Cat Fact!
             </h1>
+            <img src='https://t4.ftcdn.net/jpg/03/03/62/45/360_F_303624505_u0bFT1Rnoj8CMUSs8wMCwoKlnWlh5Jiq.jpg' width={250} />
+            <br></br>
             {catFact}
             <br></br>
             {/* {catFactTest} */}
             <br></br>
             <button onClick={getCatFact}>Get New Cat Fact</button>
             <br></br>
-            <button onClick={() => navigate(-1)}>Back</button>
+            {/* <button onClick={() => navigate(-1)}>Back</button> */}
         </div>
     )
 }

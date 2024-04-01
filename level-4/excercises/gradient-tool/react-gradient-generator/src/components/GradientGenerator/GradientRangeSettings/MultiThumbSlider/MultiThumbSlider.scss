@@ -1,0 +1,83 @@
+@use '@styles/abstracts' as *;
+
+.multi-thumb-slider {
+  position: absolute;
+  top: 36px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  cursor: copy;
+
+  &.limit {
+    pointer-events: none;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 8px;
+    border: none;
+    outline: none;
+    transform: translateY(-50%);
+    background-color: transparent;
+
+    &.active {
+      &::-webkit-slider-thumb {
+        box-shadow: $shadow, 0 0 0 2px var(--border-color);
+      }
+
+      &::-moz-range-thumb {
+        box-shadow: $shadow, 0 0 0 2px var(--border-color);
+      }
+    }
+
+    &::-webkit-slider-thumb {
+      @include clickable-element;
+      -webkit-appearance: none;
+      appearance: none;
+      pointer-events: all;
+      width: 24px;
+      height: 24px;
+      background-color: var(--gradient-thumb-color, black);
+      border: 3px solid var(--surface-color);
+      border-radius: 50%;
+      box-shadow: $shadow;
+      transition:
+        border-color $theme-transition-time $theme-transition-timing-function,
+        box-shadow $theme-transition-time $theme-transition-timing-function;
+
+      &:hover {
+        box-shadow: $shadow, 0 0 0 2px var(--border-color);
+        transition: $hover-transition-time;
+      }
+    }
+
+    &::-moz-range-thumb {
+      @include clickable-element;
+      -moz-appearance: none;
+      appearance: none;
+      pointer-events: all;
+      width: 20px;
+      height: 20px;
+      background-color: var(--gradient-thumb-color, black);
+      border: 2px solid var(--surface-color);
+      border-radius: 50%;
+      box-shadow: $shadow;
+      transition:
+        border-color $theme-transition-time $theme-transition-timing-function,
+        box-shadow $theme-transition-time $theme-transition-timing-function;
+
+      &:hover {
+        box-shadow: $shadow, 0 0 0 2px var(--border-color);
+        transition: $hover-transition-time;
+      }
+    }
+  }
+}
