@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { List } from "./components/List"
 import { NewForm } from "./components/NewForm";
 import { addItem, deleteItem, editItem, getAllItems } from "./http";
+import { Context, ContextProvider } from './Context'
 
 function App() {
+
+  // const { addItem, deleteItem, editItem, getAllItems } = useContext(Context)
 
   const [items, setItems] = useState([]);
 
@@ -32,8 +35,10 @@ function App() {
 
   return (
     <div>
+      <ContextProvider>
       <NewForm addItem={handleAddItem} />
       <List items={items} editItem={handleEditItem} deleteItem={handleDeleteItem}/>
+      </ContextProvider>
     </div>
   )
 }
