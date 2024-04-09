@@ -67,26 +67,28 @@ app.listen(9000, () => {
 //     { title: "friday the 13th", genre: "horror", _id: uuidv4() }
 // ]
 
-const tvShows = [
-    {title:"Rick and Morty", _id: uuidv4()},
-    {title:"Watchmen", _id: uuidv4()},
-    {title:"Westworld", _id: uuidv4()},
-    {title:"Friends", _id: uuidv4()},
-]
+// const tvShows = [
+//     {title:"Rick and Morty", _id: uuidv4()},
+//     {title:"Watchmen", _id: uuidv4()},
+//     {title:"Westworld", _id: uuidv4()},
+//     {title:"Friends", _id: uuidv4()},
+// ]
 
 // Routes //
 // app.get("/movies", (req, res) => {
 //     res.send(movies)
 // })
 
-app.get("/tvshows", (req, res) => {
-    res.send(tvShows)
-})
+// app.get("/tvshows", (req, res) => {
+//     res.send(tvShows)
+// })
 
 // Middleware - a function that fires on the inbetween
 app.use(express.json()) // Looks for a request body, and turns it into a 'req.body'
 
 app.use("/movies", require('./routes/movieRouter.js'))
+
+app.use("/tvshows", require('./routes/tvShowRouter.js'))
 
 // app.post("/movies", (req, res) => {
 //     const newMovie = req.body
@@ -95,12 +97,12 @@ app.use("/movies", require('./routes/movieRouter.js'))
 //     res.send(`${newMovie.title} added, thank you for your submission :)`)
 // })
 
-app.post("/tvshows", (req, res) => {
-    const newTvShow = req.body
-    newTvShow._id = uuidv4()
-    tvShows.push(newTvShow)
-    res.send(`${newTvShow.title} added, thank you for your submission :)`)
-})
+// app.post("/tvshows", (req, res) => {
+//     const newTvShow = req.body
+//     newTvShow._id = uuidv4()
+//     tvShows.push(newTvShow)
+//     res.send(`${newTvShow.title} added, thank you for your submission :)`)
+// })
 
 // Express router lesson
 
