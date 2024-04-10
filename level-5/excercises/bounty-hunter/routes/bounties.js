@@ -8,7 +8,7 @@ const bounties = [
         lastName: "Skywalker",
         living: true,
         bountyAmount: 9001,
-        type: "Jedi",
+        type: "jedi",
         _id: uuidv4()
     },
     {
@@ -16,7 +16,7 @@ const bounties = [
         lastName: "Vader",
         living: true,
         bountyAmount: 9001,
-        type: "Sith",
+        type: "sith",
         _id: uuidv4()
     },
     {
@@ -24,7 +24,7 @@ const bounties = [
         lastName: "Skywalker",
         living: true,
         bountyAmount: 9001,
-        type: "Jedi",
+        type: "jedi",
         _id: uuidv4()
     }
 ]
@@ -32,6 +32,13 @@ const bounties = [
 // Displays All data
 bountyRouter.get("/", (req, res) => {
     res.send(bounties)
+})
+
+// Get By Type (Jedi or Sith) eg http://localhost:9001/bounties/type?type=(jedi or sith)
+bountyRouter.get('/type', (req, res) => {
+    const type = req.query.type
+    const filteredType = bounties.filter(bounties => bounties.type === type)
+    res.send(filteredType)
 })
 
 // Get One Data Point
@@ -46,14 +53,7 @@ bountyRouter.post("/", (req, res) => {
     const newBounty = req.body
     newBounty._id = uuidv4()
     bounties.push(newBounty)
-    res.send(`Thank you for submitting ${newBounty.lastName}, ${newBounty.firstName} - Price: $${newBounty.bountyAmount} to our system`)
-})
-
-// Get By Type (Jedi or Sith)
-bountyRouter.get('/type', (req, res) => {
-    const type = req.query.type
-    const filteredType = bounties.filter(bounties => bounties.type === type)
-    res.send(filteredType)
+    res.send(newBounty)
 })
 
 // Updates A Single Data Object

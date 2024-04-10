@@ -7,13 +7,18 @@
 // First Express server
 
 const express = require("express")
+const app = express()
 const { v4: uuidv4 } = require('uuid')
+const morgan = require('morgan')
+
+// Middleware - a function that fires on the inbetween
+app.use(express.json()) // Looks for a request body, and turns it into a 'req.body'
+app.use(morgan('dev'))
 
 //console.log(uuidv4())
 
 // server variable 
 
-const app = express()
 
     // 1) Endpoint (mount path)
     // 2) Callback function
@@ -37,6 +42,7 @@ const users = [
     {
         name: "Blaire",
         age: 24
+    
     }
 ]
 
@@ -83,8 +89,6 @@ app.listen(9000, () => {
 //     res.send(tvShows)
 // })
 
-// Middleware - a function that fires on the inbetween
-app.use(express.json()) // Looks for a request body, and turns it into a 'req.body'
 
 app.use("/movies", require('./routes/movieRouter.js'))
 
