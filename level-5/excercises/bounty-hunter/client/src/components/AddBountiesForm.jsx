@@ -6,8 +6,8 @@ export default function AddBountiesForm(props){
         firstName: props.firstName || "", 
         lastName: props.lastName || "", 
         type: props.type || '', 
-        living: props. living || "", 
-        bountyAmount: props.number || ""
+        living: props. living || Boolean, 
+        bountyAmount: props.number || +0
     }
     
     const [inputs, setInputs] = useState(initInputs)
@@ -20,11 +20,14 @@ export default function AddBountiesForm(props){
         }))
     }
 
+    console.log(inputs)
+
     function handleSubmit(e){
         e.preventDefault()
+        
         props.submit(inputs)
         setInputs(initInputs)
-        props.toggle()
+        props.toggle && props.toggle()
     }
 
     const options = [

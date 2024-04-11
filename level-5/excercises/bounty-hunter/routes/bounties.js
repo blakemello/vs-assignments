@@ -61,6 +61,7 @@ bountyRouter.get('/:bountyId', (req, res, next) => {
 // Adds New Data
 bountyRouter.post("/", (req, res) => {
     const newBounty = req.body
+    newBounty.bountyAmount = +newBounty.bountyAmount
     newBounty._id = uuidv4()
     bounties.push(newBounty)
     res.status(201).send(newBounty)
