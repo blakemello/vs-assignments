@@ -15,13 +15,53 @@ const morgan = require('morgan')
 app.use(express.json()) // Looks for a request body, and turns it into a 'req.body'
 app.use(morgan('dev'))
 
+// Routes
+app.use("/movies", require('./routes/movieRouter.js'))
+app.use("/tvshows", require('./routes/tvShowRouter.js'))
+
+// Error handler
+app.use((err, req, res, next) => {
+    console.log(err)
+    return res.send({errMsg: err.message})
+})
+
+// Server Listen
+app.listen(9000, () => {
+    console.log("The server is running on Port 9000, Hell yeah")
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //console.log(uuidv4())
 
 // server variable 
 
 
-    // 1) Endpoint (mount path)
-    // 2) Callback function
+// 1) Endpoint (mount path)
+// 2) Callback function
+
+
+
+// tell the server to always be listening
+// 1. Port
+// 2. Callback function
+
 app.get("/", (req, res) => {
     res.send("Test post, please ignore")
 })
@@ -49,16 +89,6 @@ const users = [
 app.get("/users", (req, res) => {
     res.send(users)
 })
-
-
-
-// tell the server to always be listening
-    // 1. Port
-    // 2. Callback function
-app.listen(9000, () => {
-    console.log("The server is running on Port 9000, Hell yeah")
-})
-
 // Step 3) node server.js
 
 //Stop servers with control C
@@ -90,9 +120,6 @@ app.listen(9000, () => {
 // })
 
 
-app.use("/movies", require('./routes/movieRouter.js'))
-
-app.use("/tvshows", require('./routes/tvShowRouter.js'))
 
 // app.post("/movies", (req, res) => {
 //     const newMovie = req.body

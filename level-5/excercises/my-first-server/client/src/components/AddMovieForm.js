@@ -16,9 +16,9 @@ export default function AddMovieForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        //console.log(inputs)
-        props.addMovie(inputs)
+        props.submit(inputs, props._id)
         setInputs(initInputs)
+        //props.toggle()
     }
 
     return (
@@ -37,7 +37,7 @@ export default function AddMovieForm(props){
                 onChange={handleChange}
                 placeholder='Genre'
             />
-            <button>Add Movie</button>
+            <button className='add-btn'>{ props.btnText }</button>
         </form>
     )
 }

@@ -10,7 +10,7 @@ function App() {
   function getMovies(){
     axios.get("/movies")
     .then(res => setMovies(res.data))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err.response.data.errMsg))
   }
 
   function addMovie(newMovie) {
@@ -29,6 +29,15 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  function editMovie(updates, movieId) {
+    axios.put(`/movies/${movieId}`, updates)
+      .then(res => {
+        setMovies(prevMovies => prevMovies.map(movie => movie._id !== movieId ? movie : res.data))
+      })
+      .then()
+      .catch(err => console.log(err))
+  }
+
 
   useEffect(() => {
     getMovies()
@@ -36,19 +45,21 @@ function App() {
 
 
   return (
-    <div>
+    <div className='App'>
       <div className='movie-container'>
+        <h1>Add New Movie</h1>
+        <AddMovieForm
+          submit={addMovie}
+          btnText="Add Movie"
+        />
         <h1>Movies Available:</h1>
         {movies.map(movie =>
           <Movie
             {...movie}
             key={movie._id}
             deleteMovie={deleteMovie}
+            editMovie={editMovie}
           />)}
-        <h1>Add New Movie</h1>
-        <AddMovieForm
-          addMovie={addMovie}
-        />
       </div>
     </div>
   );

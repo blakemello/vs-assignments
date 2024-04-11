@@ -70,11 +70,16 @@ button {
 }
 
 .delete-btn {
-  background-color: firebrick;
+  background-color: #CF6679;
   color: whitesmoke;
 }
 
 .add-btn {
   background-color: #BB86FC;
   color: #242424;
+}
+
+.edit-btn {
+  background-color: #3700B3;
+  color: whitesmoke;
 }

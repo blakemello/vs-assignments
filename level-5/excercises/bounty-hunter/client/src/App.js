@@ -31,6 +31,12 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  function editBounties(updates, bountiesId) {
+    axios.put(`/bounties/${bountiesId}`, updates)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+
   useEffect(() => {
     getBounties()
   }, [])
@@ -38,14 +44,17 @@ function App() {
   return (
     <div className="App">
       <div className='bounties-container'>
+        <h1>Add New Bounties</h1>
         <AddBountiesForm
-          addBounties={addBounties}
+          submit={addBounties}
+          btnText="Add Bounty"
         />
         {bounties.map(bounty =>
           <Bounties
             {...bounty}
             key={bounty._id}
             deleteBounties={deleteBounties}
+            editBounties={editBounties}
           />)}
       </div>
     </div>

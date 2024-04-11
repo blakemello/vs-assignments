@@ -2,7 +2,13 @@ import React, { useState } from 'react'
 
 export default function AddBountiesForm(props){
 
-    const initInputs = { firstName: "", lastName: "", type: "", living: "", bounty: "" }
+    const initInputs = {
+        firstName: props.firstName || "", 
+        lastName: props.lastName || "", 
+        type: props.type || '', 
+        living: props. living || "", 
+        bountyAmount: props.number || ""
+    }
     
     const [inputs, setInputs] = useState(initInputs)
 
@@ -16,9 +22,9 @@ export default function AddBountiesForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log(inputs)
-        props.addBounties(inputs)
+        props.submit(inputs)
         setInputs(initInputs)
+        props.toggle()
     }
 
     const options = [
@@ -54,19 +60,18 @@ export default function AddBountiesForm(props){
                 type='checkbox'
                 //checked={checked}
                 name='living'
-                value={inputs.living}
+                value={inputs.living.value}
                 onChange={handleChange}
-                placeholder='true or false'
             />
             </label>
             <input 
                 type='number'
-                name='bounty'
-                value={inputs.bounty.valueAsNumber}
+                name='bountyAmount'
+                value={inputs.bountyAmount.valueAsNumber}
                 onChange={handleChange}
                 placeholder='Bounty Amount'
             />            
-            <button className='add-btn'>Add Bounty</button>
+            <button className='add-btn'>{ props.btnText }</button>
         </form>
     )
 }

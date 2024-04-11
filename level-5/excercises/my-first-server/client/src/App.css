@@ -42,7 +42,7 @@
   font-family: sans-serif;
   margin: 0;
   padding: 0;
-  color: #333;
+  color: #BB86FC;
 }
 
 h1 {
@@ -65,6 +65,8 @@ input {
   border: 1px solid #333;
   border-radius: 8px;
   margin: 5px;
+  background-color: #080808;
+  color: whitesmoke;
 }
 
 button {
@@ -85,12 +87,22 @@ button {
   margin: 5px;
 }
 
+.add-btn {
+  background-color: #3700B3;
+  color: whitesmoke;
+}
+
 .delete-btn {
-  background-color: firebrick;
+  background-color: #CF6679;
   color: whitesmoke;
 }
 
 .edit-btn {
-  background-color: cornflowerblue;
+  background-color: #03DAC6;
+  color: whitesmoke;
+}
+
+.cancel-btn {
+  background-color: firebrick;
   color: whitesmoke;
 }
