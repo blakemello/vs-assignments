@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #BB86FC;
 }
 
 .App-logo {
@@ -35,4 +36,45 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+form {
+  padding: 10px;
+  margin: 5px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #BB86FC;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.bounties-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 32px;
+}
+
+.bounties {
+  border: 1px solid #BB86FC;
+  padding: 10px;
+  margin: 5px;
+}
+
+.delete-btn {
+  background-color: firebrick;
+  color: whitesmoke;
+}
+
+.add-btn {
+  background-color: #BB86FC;
+  color: #242424;
 }

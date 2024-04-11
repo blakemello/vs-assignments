@@ -21,6 +21,15 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  function deleteMovie(movieId) {
+    axios.delete(`/movies/${movieId}`)
+      .then(res => {
+        setMovies(prevMovies => prevMovies.filter(movie => movie._id !== movieId))
+      })
+      .catch(err => console.log(err))
+  }
+
+
   useEffect(() => {
     getMovies()
   }, [])
@@ -30,9 +39,14 @@ function App() {
     <div>
       <div className='movie-container'>
         <h1>Movies Available:</h1>
-        {movies.map(movie => <Movie {...movie} key={movie._id} />)}
+        {movies.map(movie =>
+          <Movie
+            {...movie}
+            key={movie._id}
+            deleteMovie={deleteMovie}
+          />)}
         <h1>Add New Movie</h1>
-        <AddMovieForm 
+        <AddMovieForm
           addMovie={addMovie}
         />
       </div>

@@ -22,7 +22,7 @@ const bounties = [
     {
         firstName: "Anakin",
         lastName: "Skywalker",
-        living: true,
+        living: false,
         bountyAmount: 9001,
         type: "jedi",
         _id: uuidv4()

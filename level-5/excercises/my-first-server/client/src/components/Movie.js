@@ -8,6 +8,7 @@ export default function Movie(props){
         <div className='movie'>
             <h1>Title: {title}</h1>
             <p>Genre: {genre}</p>
+            <button className='delete-btn' onClick={() => props.deleteMovie(_id)}>Delete</button>
         </div>
     )
 }

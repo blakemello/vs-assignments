@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function AddMovieForm(props){
 
-    const initInputs = { title: " ", genre: " " }
+    const initInputs = { title: props.title || "", genre: props.genre || "" }
     
     const [inputs, setInputs] = useState(initInputs)
 

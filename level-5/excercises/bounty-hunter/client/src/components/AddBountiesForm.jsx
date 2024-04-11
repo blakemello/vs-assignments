@@ -62,11 +62,11 @@ export default function AddBountiesForm(props){
             <input 
                 type='number'
                 name='bounty'
-                value={inputs.bounty}
+                value={inputs.bounty.valueAsNumber}
                 onChange={handleChange}
                 placeholder='Bounty Amount'
             />            
-            <button>Add Bounty</button>
+            <button className='add-btn'>Add Bounty</button>
         </form>
     )
 }

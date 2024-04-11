@@ -23,16 +23,31 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  function deleteBounties(bountiesId) {
+    axios.delete(`/Bounties/${bountiesId}`)
+      .then(res => {
+        setBounties(prevBounties => prevBounties.filter(bounties => bounties._id !== bountiesId))
+      })
+      .catch(err => console.log(err))
+  }
+
   useEffect(() => {
     getBounties()
   }, [])
 
   return (
     <div className="App">
-      <AddBountiesForm
-        addBounties = {addBounties}
-      />
-      {bounties.map(bounty => <Bounties {...bounty} key={bounty._id}/>)}
+      <div className='bounties-container'>
+        <AddBountiesForm
+          addBounties={addBounties}
+        />
+        {bounties.map(bounty =>
+          <Bounties
+            {...bounty}
+            key={bounty._id}
+            deleteBounties={deleteBounties}
+          />)}
+      </div>
     </div>
   );
 }
