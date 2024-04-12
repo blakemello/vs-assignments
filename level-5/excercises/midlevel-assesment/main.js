@@ -3,14 +3,15 @@
 // a new array containing only the unique characters from all the strings.
 
 function extractUniqueCharacters(str) {
-  let uniq = ""
-  for (let i = 0; i < str.length; i++) {
-		if (uniq.includes(str[i]) === false) {
-			uniq += str[i]
-		}
-	}
-	return uniq;
-}
+  let uniqueLetters = new Set();
+     str.forEach((word) => {
+     word.split('').forEach((char) => {
+       uniqueLetters.add(char);
+     });
+   });
+   return Array(...uniqueLetters);
+ }
+
 
 const words = ['apple', 'banana', 'cherry'];
 const uniqueChars = extractUniqueCharacters(words);
@@ -20,10 +21,11 @@ console.log(uniqueChars); // Output: ['a', 'p', 'l', 'e', 'b', 'n', 'c', 'h', 'r
 // Write a function called sortByProperty that takes an array of objects and a property name as input.
 // The function should return a new array containing the objects sorted in ascending order based on the specified property.
 function sortByProperty(objects, propertyName) {
-  const property = propertyName
-  const solution = objects.sort((a, b) => a`${property}` - b`${property}`)
+//const solution = objects.sort((a, b) => a.`${propertyName}` - b.`${propertyName}`)
+  const solution = objects.sort((a, b) => a[propertyName] - b[propertyName])
   return solution
 }
+
 
 const people = [
   { name: 'Alice', age: 30 },
@@ -38,8 +40,23 @@ console.log(sortedByAge);
 // 3) Mystery assignment
 
 const test = () => {
-    let result = "Hello there"
-    return result
+  let result = "Hello there"
+  return result
 }
 
 console.log(test())
+
+
+function filterByProperty(objects, propertyName, propertyValue) {
+  objects.filter(object => object[propertyName] === propertyValue)
+  return propertyValue;
+}
+
+const people2 = [
+  { name: 'Alice', age: 30, country: 'USA' },
+  { name: 'Bob', age: 25, country: 'Canada' },
+  { name: 'Charlie', age: 35, country: 'USA' },
+  { name: 'David', age: 28, country: 'Australia' },
+];
+const filteredByCountry = filterByProperty(people2, 'country', 'Canada');
+console.log(filteredByCountry);
