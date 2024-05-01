@@ -6,8 +6,8 @@ export default function AddBountiesForm(props){
         firstName: props.firstName || "", 
         lastName: props.lastName || "", 
         type: props.type || '', 
-        living: props. living || Boolean, 
-        bountyAmount: props.number || +0
+        living: true, 
+        bountyAmount: +0
     }
     
     const [inputs, setInputs] = useState(initInputs)
@@ -24,7 +24,6 @@ export default function AddBountiesForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        
         props.submit(inputs)
         setInputs(initInputs)
         props.toggle && props.toggle()
@@ -34,6 +33,15 @@ export default function AddBountiesForm(props){
         {label: 'sith'},
         {label: 'jedi'}
     ]
+
+    const [checked, setChecked] = useState(true)
+
+    function handleChecked() {
+        setChecked(prevChecked => prevChecked === true ? false : true)
+        console.log(checked)
+    }
+
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -61,16 +69,16 @@ export default function AddBountiesForm(props){
             <label htmlFor=''> Living:
             <input 
                 type='checkbox'
-                //checked={checked}
+                checked={checked}
                 name='living'
-                value={inputs.living.value}
-                onChange={handleChange}
+                value={inputs.living}
+                onChange={handleChecked}
             />
             </label>
             <input 
                 type='number'
                 name='bountyAmount'
-                value={inputs.bountyAmount.valueAsNumber}
+                value={inputs.bountyAmount}
                 onChange={handleChange}
                 placeholder='Bounty Amount'
             />            

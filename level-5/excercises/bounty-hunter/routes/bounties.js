@@ -71,7 +71,8 @@ bountyRouter.post("/", (req, res) => {
 bountyRouter.put('/:bountyId', (req, res) => {
     const bountyId = req.params.bountyId
     const bountyIndex = bounties.findIndex(bounties => bounties._id === bountyId)
-    const updatedBounty = Object.assign(bounties[bountyIndex], req.body)
+    const updatedBounty = Object.assign({},bounties[bountyIndex], req.body)
+    bounties.splice(bountyIndex, 1, updatedBounty)
     res.status(201).send(updatedBounty)
 })
 

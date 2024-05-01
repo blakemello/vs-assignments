@@ -22,8 +22,8 @@ console.log(uniqueChars); // Output: ['a', 'p', 'l', 'e', 'b', 'n', 'c', 'h', 'r
 // The function should return a new array containing the objects sorted in ascending order based on the specified property.
 function sortByProperty(objects, propertyName) {
 //const solution = objects.sort((a, b) => a.`${propertyName}` - b.`${propertyName}`)
-  const solution = objects.sort((a, b) => a[propertyName] - b[propertyName])
-  return solution
+  objects.sort((a, b) => a[propertyName] - b[propertyName])
+  return objects
 }
 
 
@@ -45,18 +45,3 @@ const test = () => {
 }
 
 console.log(test())
-
-
-function filterByProperty(objects, propertyName, propertyValue) {
-  objects.filter(object => object[propertyName] === propertyValue)
-  return propertyValue;
-}
-
-const people2 = [
-  { name: 'Alice', age: 30, country: 'USA' },
-  { name: 'Bob', age: 25, country: 'Canada' },
-  { name: 'Charlie', age: 35, country: 'USA' },
-  { name: 'David', age: 28, country: 'Australia' },
-];
-const filteredByCountry = filterByProperty(people2, 'country', 'Canada');
-console.log(filteredByCountry);

@@ -32,8 +32,12 @@ function App() {
   }
 
   function editBounties(updates, bountiesId) {
+    console.log('updates:', updates)
     axios.put(`/bounties/${bountiesId}`, updates)
-      .then(res => console.log(res))
+       .then(res => {
+         setBounties(prevBounties => prevBounties.map(bounties => bounties._id !== bountiesId ? bounties : res.data))
+       })
+      //.then(res => console.log('response:', res.data))
       .catch(err => console.log(err))
   }
 
