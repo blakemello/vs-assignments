@@ -8,3 +8,10 @@
     #500 - Server Error
 
 # https://http.cat
+
+# Dependancies 
+    npm i uuid
+    npm i express
+    npm i morgan
+    npm i mongoose
+    npm i mongodb

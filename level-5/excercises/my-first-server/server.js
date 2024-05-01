@@ -10,10 +10,17 @@ const express = require("express")
 const app = express()
 const { v4: uuidv4 } = require('uuid')
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 
 // Middleware - a function that fires on the inbetween
 app.use(express.json()) // Looks for a request body, and turns it into a 'req.body'
 app.use(morgan('dev'))
+
+//Connect to DataBase
+//mongoose.connect('mongodb://localhost:27017/moviesdb')
+
+mongoose.connect('mongodb+srv://blakemello94:ForCluster23!!@cluster0.u0ghhl3.mongodb.net/moviesdb?retryWrites=true&w=majority&appName=Cluster0', {})
+
 
 // Routes
 app.use("/movies", require('./routes/movieRouter.js'))
