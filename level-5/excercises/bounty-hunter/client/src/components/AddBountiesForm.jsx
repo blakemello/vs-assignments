@@ -3,11 +3,11 @@ import React, { useState } from 'react'
 export default function AddBountiesForm(props){
 
     const initInputs = {
-        firstName: props.firstName || "", 
-        lastName: props.lastName || "", 
+        firstName: props.firstName || '', 
+        lastName: props.lastName || '', 
         type: props.type || '', 
-        living: true, 
-        bountyAmount: +0
+        living: props.living || true, 
+        bountyAmount: props.bountyAmount || 0
     }
     
     const [inputs, setInputs] = useState(initInputs)
@@ -24,7 +24,7 @@ export default function AddBountiesForm(props){
 
     function handleSubmit(e){
         e.preventDefault()
-        props.submit(inputs)
+        props.submit(inputs, props._id)
         setInputs(initInputs)
         props.toggle && props.toggle()
     }

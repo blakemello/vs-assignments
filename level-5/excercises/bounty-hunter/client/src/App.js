@@ -40,6 +40,10 @@ function App() {
       //.then(res => console.log('response:', res.data))
       .catch(err => console.log(err))
   }
+  
+  function handleFilter(e){
+    console.log(e.target.value)
+  }
 
   useEffect(() => {
     getBounties()
@@ -53,6 +57,15 @@ function App() {
           submit={addBounties}
           btnText="Add Bounty"
         />
+
+        <h4>Filter by Type</h4>
+        <select onChange={handleFilter} className='type-select'>
+          <option>- Select a Type -</option>
+          <option value='sith'>Sith</option>
+          <option value='jedi'>Jedi</option>
+        </select>
+
+        <h1>Bouties Available</h1>
         {bounties.map(bounty =>
           <Bounties
             {...bounty}

@@ -14,4 +14,4 @@ const movieSchema = new Schema({
     releaseYear: Number
 })
 
-module.export = mongoose.model("Movie", movieSchema)
+module.exports = mongoose.model("Movie", movieSchema)

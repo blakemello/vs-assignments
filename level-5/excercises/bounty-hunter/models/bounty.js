@@ -18,8 +18,7 @@ const bountiesSchema = new Schema({
         required: true
     },
     living: {
-        type: Boolean,
-        required: true
+        type: Boolean
     },
     bountyAmount: {
         type: Number,
@@ -27,4 +26,4 @@ const bountiesSchema = new Schema({
     }
 })
 
-module.export = mongoose.model("Bounty", bountiesSchema)
+module.exports = mongoose.model("Bounty", bountiesSchema)

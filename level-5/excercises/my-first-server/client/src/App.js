@@ -38,6 +38,10 @@ function App() {
       .catch(err => console.log(err))
   }
 
+  function handleFilter(e){
+    console.log(e.target.value)
+  }
+
 
   useEffect(() => {
     getMovies()
@@ -52,6 +56,15 @@ function App() {
           submit={addMovie}
           btnText="Add Movie"
         />
+
+        <h4>Filter by Genre</h4>
+        <select onChange={handleFilter} className='filter-form'>
+          <option>- Select a Genre -</option>
+          <option value='action'>Action</option>
+          <option value='horror'>Horror</option>
+          <option value='fantasy'>Fantasy</option>
+        </select>
+
         <h1>Movies Available:</h1>
         {movies.map(movie =>
           <Movie
