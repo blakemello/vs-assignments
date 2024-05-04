@@ -39,7 +39,16 @@ function App() {
   }
 
   function handleFilter(e){
-    console.log(e.target.value)
+      if(e.target.value === "all") {
+        axios.get('/movies')
+          .then(res => {setMovies(res.data)})
+          .catch(err => console.log(err))
+      } else {
+        axios.get(`/movies/search/genre?genre=${e.target.value}`)
+        .then(res => {setMovies(res.data)})
+        .catch(err => console.log(err))
+      }
+     
   }
 
 
@@ -59,7 +68,7 @@ function App() {
 
         <h4>Filter by Genre</h4>
         <select onChange={handleFilter} className='filter-form'>
-          <option>- Select a Genre -</option>
+          <option value='all'>- Select a Genre -</option>
           <option value='action'>Action</option>
           <option value='horror'>Horror</option>
           <option value='fantasy'>Fantasy</option>

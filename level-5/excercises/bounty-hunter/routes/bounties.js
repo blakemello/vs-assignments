@@ -42,15 +42,14 @@ bountyRouter.get("/", async (req, res, next) => {
 })
 
 // Get By Type (Jedi or Sith) eg http://localhost:9001/bounties/type?type=(jedi or sith)
-bountyRouter.get('/type', (req, res, next) => {
-    const type = req.query.type
-    if(!type){
-        const error = new Error(`please input a valid type`)
+bountyRouter.get('/type', async (req, res, next) => {
+    try {
+        const filteredBounties = await Bounty.find({type: req.query.type})
+        res.status(200).send(filteredBounties)
+    } catch (err) {
         res.status(500)
-        return next(error)
+        return next(err)
     }
-    const filteredType = bounties.filter(bounties => bounties.type === type)
-    res.status(200).send(filteredType)
 })
 
 // Get One Data Point
@@ -58,9 +57,9 @@ bountyRouter.get('/:bountyId', async (req, res, next) => {
     try {
         const foundBounties = await Bounty.findById(req.params.bountyId)
         return res.status(200).send(foundBounties)
-    } catch (error) {
+    } catch (err) {
         res.status(500)
-        return next(error)
+        return next(err)
     }
 })
 
@@ -70,7 +69,7 @@ bountyRouter.post('/', async (req, res, next) => {
         const newBounty = new Bounty(req.body)
         const savedBounty = await newBounty.save()
         res.status(201).send(savedBounty)
-    } catch (error) {
+    } catch (err) {
         res.status(500)
         return next(err)
     }
@@ -96,9 +95,9 @@ bountyRouter.delete('/:bountyId', async (req, res, next) => {
     try {
         const deletedBounties = await Bounty.findByIdAndDelete(req.params.bountyId)
         return res.status(201).send(`You have elminated ${deletedBounties.firstName}, good hunting`)
-    } catch (error) {
+    } catch (err) {
         res.status(500)
-        return next(error)
+        return next(err)
     }
 })
 

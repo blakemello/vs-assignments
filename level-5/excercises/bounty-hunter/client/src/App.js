@@ -42,7 +42,15 @@ function App() {
   }
   
   function handleFilter(e){
-    console.log(e.target.value)
+    if(e.target.value === 'all') {
+      axios.get('/bounties')
+        .then(res => {setBounties(res.data)})
+        .catch(err => console.log(err))
+    } else {
+      axios.get(`bounties/type?type=${e.target.value}`)
+        .then(res => {setBounties(res.data)})
+        .catch(err => console.log(err))
+    }
   }
 
   useEffect(() => {
@@ -60,7 +68,7 @@ function App() {
 
         <h4>Filter by Type</h4>
         <select onChange={handleFilter} className='type-select'>
-          <option>- Select a Type -</option>
+          <option value='all'>- Select a Type -</option>
           <option value='sith'>Sith</option>
           <option value='jedi'>Jedi</option>
         </select>

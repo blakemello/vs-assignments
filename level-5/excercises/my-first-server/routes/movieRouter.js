@@ -56,16 +56,27 @@ movieRouter.get("/:movieId", async (req, res, next) => {
 })
 
 //Get By Genre
-movieRouter.get("/search/genre", (req, res, next) => {
-    const genre = req.query.genre
-    if(!genre){
-        const error = new Error(`please select a valid genre`)
+movieRouter.get("/search/genre", async (req, res, next) => {
+    try {
+        const filteredMovies = await Movie.find({genre: req.query.genre})
+        return res.status(200).send(filteredMovies)
+    } catch (err) {
         res.status(500)
-        return next(error)
+        return next(err)
     }
-    const filteredMovies = movies.filter(movie => movie.genre === genre)
-    res.status(200).send(filteredMovies)
+     
 })
+
+// movieRouter.get("/search/genre", async (req, res, next) => {
+//     Movie.find({genre: req.query.genre}) 
+//     if(!genre){
+//         const error = new Error(`please select a valid genre`)
+//         res.status(500)
+//         return next(error)
+//     }
+//     const filteredMovies = movies.filter(movie => movie.genre === genre)
+//     res.status(200).send(filteredMovies)
+// })
 
 //Post One
 movieRouter.post('/', async (req, res, next) => {
@@ -73,7 +84,7 @@ movieRouter.post('/', async (req, res, next) => {
         const newMovie = new Movie(req.body)
         const savedMovie = await newMovie.save()
         res.status(201).send(savedMovie)
-    } catch (error) {
+    } catch (err) {
         res.status(500)
         return next(err)
     }
