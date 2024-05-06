@@ -1,34 +1,6 @@
 const express = require("express")
-//const { v4: uuidv4 } = require('uuid')
 const bountyRouter = express.Router()
 const Bounty = require('../models/bounty')
-
-// const bounties = [
-//     {
-//         firstName: "Luke",
-//         lastName: "Skywalker",
-//         living: true,
-//         bountyAmount: 9001,
-//         type: "jedi",
-//         _id: uuidv4()
-//     },
-//     {
-//         firstName: "Darth",
-//         lastName: "Vader",
-//         living: true,
-//         bountyAmount: 9001,
-//         type: "sith",
-//         _id: uuidv4()
-//     },
-//     {
-//         firstName: "Anakin",
-//         lastName: "Skywalker",
-//         living: false,
-//         bountyAmount: 9001,
-//         type: "jedi",
-//         _id: uuidv4()
-//     }
-// ]
 
 // Displays All data
 bountyRouter.get("/", async (req, res, next) => {
@@ -45,7 +17,7 @@ bountyRouter.get("/", async (req, res, next) => {
 bountyRouter.get('/type', async (req, res, next) => {
     try {
         const filteredBounties = await Bounty.find({type: req.query.type})
-        res.status(200).send(filteredBounties)
+        return res.status(200).send(filteredBounties)
     } catch (err) {
         res.status(500)
         return next(err)
