@@ -24,6 +24,17 @@ bountyRouter.get('/type', async (req, res, next) => {
     }
 })
 
+// Better way to handle get by type eg http://localhost:9001/bounties/(jedi or sith)
+bountyRouter.get('/:type', async (req, res, next) => {
+    try {
+        const filteredBounties = await Bounty.find({type: req.params.type})
+        return res.status(200).send(filteredBounties)
+    } catch (err) {
+        res.status(500)
+        return next(err)
+    }
+})
+
 // Get One Data Point
 bountyRouter.get('/:bountyId', async (req, res, next) => {
     try {

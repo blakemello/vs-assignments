@@ -24,7 +24,7 @@ function App() {
   }
 
   function deleteBounties(bountiesId) {
-    axios.delete(`/Bounties/${bountiesId}`)
+    axios.delete(`/bounties/${bountiesId}`)
       .then(res => {
         setBounties(prevBounties => prevBounties.filter(bounties => bounties._id !== bountiesId))
       })

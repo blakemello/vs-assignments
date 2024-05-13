@@ -13,6 +13,27 @@ bookRouter.get('/',  async (req, res, next) => {
     }
 })
 
+//Get by Query
+// bookRouter.get('/author', async (req, res, next) =>{
+//     try {
+//         const filteredBooks = await Book.find({author: req.query.author})
+//         return res.status(200).send(filteredBooks)
+//     } catch (err) {
+//         res.status(500)
+//         return next(err)
+//     }
+// })
+
+bookRouter.get('/:author', async (req, res, next) =>{
+    try {
+        const filteredBooks = await Book.find({author: req.params.author})
+        return res.status(200).send(filteredBooks)
+    } catch (err) {
+        res.status(500)
+        return next(err)
+    }
+})
+
 //Add new book
 bookRouter.post('/:authorID', async (req, res, next) => {
     try {

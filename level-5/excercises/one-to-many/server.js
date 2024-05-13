@@ -26,5 +26,5 @@ app.use((err, req, res, next) => {
 
 //Make sure the server is up
 app.listen(9008, () => {
-    console.log("The server is running on Port 9008, the needs of the many updated by the will of the one")
+    console.log("The server is running on Port 9008, the get of the many updated by the post of the one")
 })
