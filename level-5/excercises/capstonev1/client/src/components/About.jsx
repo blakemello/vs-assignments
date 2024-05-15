@@ -6,7 +6,7 @@ export default function About(props){
     
     
     return(
-        <div>
+        <div className='about'>
             About Us
         </div>
     )

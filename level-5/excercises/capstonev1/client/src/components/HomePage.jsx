@@ -4,7 +4,7 @@ import { Context, ContextProvider } from '../Context';
 
 export default function HomePage(props) {
     
-    const { title , _id } = props
+    const { title, imgUrl, description, completed, _id } = props
 
     const { all, getAll, addItem, editItem, deleteItem } = useContext(Context)
 
@@ -15,6 +15,9 @@ export default function HomePage(props) {
             { !editToggle ?
                 <>
                     <h1>Title: {title}</h1>
+                    <img src={imgUrl} width={250} />
+                    <h3>Description: {description}</h3>
+                    <p>Completed: {completed.toString()}</p>
                     <button
                         className='delete-btn'
                         onClick={() => deleteItem(_id)}
@@ -32,6 +35,9 @@ export default function HomePage(props) {
                 <>
                     <Form
                         title={title}
+                        imgUrl={imgUrl}
+                        description={description}
+                        completed={completed}
                         _id={_id}
                         btnText="Submit Edit"
                         submit={editItem}
