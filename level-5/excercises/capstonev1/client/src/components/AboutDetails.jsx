@@ -10,7 +10,7 @@ export default function AboutDetails() {
     const navigate = useNavigate()
 
     return (
-        <div>
+        <div className="App">
             <h1>{foundAbout.name} </h1>
             <img src={foundAbout.imgUrl} width={500}/>
             <p>{foundAbout.description}</p>

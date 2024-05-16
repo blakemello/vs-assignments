@@ -20,7 +20,7 @@ export default function SplashPage(props) {
 
     return(
         <div className='splash-page'>
-            <h1>Hello World!</h1>
+            <h1>Hello World! Welcome to my Level 5 Captsone(it's another todo)</h1>
         <h1>
             Here's a Dog Fact!
         </h1>

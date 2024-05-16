@@ -17,7 +17,7 @@ export default function About(props) {
     const navigate = useNavigate()
 
     return(
-        <div>
+        <div className="App">
             <h1>
                 About Us!
             </h1>

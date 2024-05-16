@@ -29,7 +29,7 @@ function App(props) {
       <Routes>
         <Route path ="/" element={<SplashPage />}/>
         <Route path ="/list" element={<List />} />
-        <Route path='about/:listId' element={<ListDetials />} />
+        <Route path='list/:listId' element={<ListDetials />} />
         <Route path ="/about" element={<About />} />
         <Route path='about/:aboutId' element={<AboutDetails />} />
       </Routes>
