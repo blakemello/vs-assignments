@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import List from './components/List'
+import ListDetials from './components/ListDetails'
 import SplashPage from './components/SplashPage';
 import About from './components/About'
+import AboutDetails from './components/AboutDetails'
 import './App.css';
 import { Context, ContextProvider } from './Context';
 
@@ -27,7 +29,9 @@ function App(props) {
       <Routes>
         <Route path ="/" element={<SplashPage />}/>
         <Route path ="/list" element={<List />} />
+        <Route path='about/:listId' element={<ListDetials />} />
         <Route path ="/about" element={<About />} />
+        <Route path='about/:aboutId' element={<AboutDetails />} />
       </Routes>
     </Router>
   );
