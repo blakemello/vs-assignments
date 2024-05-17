@@ -14,7 +14,7 @@ function App(props) {
 
   return (
     <Router>
-      <nav>
+      <nav className='nav-bar'>
         <Link to="/" style={{padding: 5}}>
           Home
         </Link>

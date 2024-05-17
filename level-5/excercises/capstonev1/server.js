@@ -8,7 +8,16 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 // Connect to Database
-mongoose.connect('mongodb+srv://blakemello94:ForCluster23!!@cluster0.u0ghhl3.mongodb.net/capstonedb?retryWrites=true&w=majority&appName=Cluster0', {})
+async function connectToDb() {
+    try {
+       await mongoose.connect('mongodb+srv://blakemello94:ForCluster23!!@cluster0.u0ghhl3.mongodb.net/capstonedb?retryWrites=true&w=majority&appName=Cluster0')
+       console.log('Connected to DB') 
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+connectToDb()
 
 //Routes
 app.get("/", (req, res) => {

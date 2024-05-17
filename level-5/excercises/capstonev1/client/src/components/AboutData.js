@@ -9,7 +9,7 @@ const aboutData = [
         "_id": "2",
         name: "Sarah Stephens",
         imgUrl: "https://i.imgur.com/YROIynP.png",
-        description: "My Muse"
+        description: "Loves beans on toast"
     }
 ]
 

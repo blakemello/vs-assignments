@@ -2,27 +2,22 @@ import React, { useState } from 'react'
 
 export default function Form(props){
 
-    const [checked, setChecked] = useState(true)
-
-    function handleChecked() {
-        setChecked(prevChecked => prevChecked === true ? false : true)
-        console.log(`Checked: ${checked}`)
-    }
 
     const initInputs = {
         title: props.title || '',
         imgUrl: props.imgUrl || '',
         description: props.description || '',
-        completed: props.completed || checked,
+        completed: props.completed || false,
     }
 
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(event){
-        const { name, value } = event.target
+        const { name, value, type, checked } = event.target
+        console.log(type, checked)
         setInputs(prevInputs => ({
             ...prevInputs,
-            [name]: value
+            [name]:  type === "checkbox" ? checked : value
         }))
     }
 
@@ -63,7 +58,7 @@ export default function Form(props){
                 type='checkbox'
                 name='completed'
                 value={inputs.completed}
-                onChange={handleChecked}
+                onChange={handleChange}
             />
             </label>
             <button className='add-btn'>{ props.btnText }</button>

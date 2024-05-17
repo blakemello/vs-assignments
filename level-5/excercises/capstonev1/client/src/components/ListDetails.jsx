@@ -17,6 +17,7 @@ export default function ListDetails(props) {
             <h1>{foundList.title} </h1>
             <img src={foundList.imgUrl} width={250}/>
             <p>{foundList.description}</p>
+            <p>{foundList.completed ? "Done" : "Incomplete"}</p>
             <br></br>
 
             <br></br>

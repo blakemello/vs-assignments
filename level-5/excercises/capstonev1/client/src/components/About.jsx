@@ -14,8 +14,6 @@ export default function About(props) {
         </h3>
     ))
 
-    const navigate = useNavigate()
-
     return(
         <div className="App">
             <h1>

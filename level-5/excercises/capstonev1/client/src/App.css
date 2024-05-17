@@ -67,6 +67,18 @@ button {
   color: #BB86FC;
 }
 
+.nav-bar {
+  text-align: center; 
+}
+
+a:link {
+  color:#BB86FC
+}
+
+a:visited {
+  color: #BB86FC;
+}
+
 .delete-btn {
   background-color: #CF6679;
   color: whitesmoke;
@@ -82,7 +94,16 @@ button {
   color: whitesmoke;
 }
 
+.cancel-btn {
+  background-color: orangered;
+  color: whitesmoke
+}
+
 .dog-btn {
   background-color: aqua;
   color: #242424;
+}
+
+.dog-header {
+  color: aqua
 }
