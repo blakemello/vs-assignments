@@ -17,3 +17,4 @@
     npm i axios
     npm i jsonwebtoken
     npm i dotenv --save (local)
+    npm i express-jwt

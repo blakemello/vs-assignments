@@ -4,9 +4,21 @@
 
 function extractInitials(names) {
     const firstLetter = names.join(', ').split(' ').map(i => i.charAt(0))
-    console.log(firstLetter)
-    const result = names.map(name => name[0])
-    return result
+    const result = []
+    for(i=0; i< firstLetter.length; i++){
+      if(i % 2 === 1 ){
+        result.push(firstLetter[i-1]+firstLetter[i])
+      }
+    }
+    console.log(result)
+
+    return names.map( name => {
+      //returns arr of arr of strings
+      const part = name.split(' ')
+    // returns arr of arr of first initials        returns arr of strings
+      const initials = part.map( part => part[0]).join('')
+      return initials
+    })
 };
 
 

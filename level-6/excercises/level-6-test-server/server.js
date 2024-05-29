@@ -3,6 +3,10 @@ const app = express()
 require('dotenv').config()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+const { expressjwt } = require("express-jwt")
+
+
+
 
 //gets env to work
 process.env.SECRET
@@ -14,7 +18,7 @@ app.use(morgan('dev'))
 // Connect to Database
 async function connectToDb(){
     try {
-        await mongoose.connect('mongodb+srv://blakemello94:ForCluster23!!@cluster0.u0ghhl3.mongodb.net/test-serverdb?retryWrites=true&w=majority&appName=Cluster0', {})
+        await mongoose.connect(process.env.MONGO_URI, {})
         console.log('Connected to DataBase')
     } catch (err) {
         console.log(err)
