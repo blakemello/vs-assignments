@@ -15,11 +15,8 @@ export default function IssueList(props) {
 
     const issueElements = issues.map(issue => {
         return (
-            <div>
-            <Issue {...issue} key={issue._id}/>
-            <br></br>
-            <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>Edit</button>
-            <button onClick={() => deleteIssue(issue._id)}>Delete</button>
+            <div key={issue._id}>
+            <Issue {...issue} />
             </div>
         )
     })
