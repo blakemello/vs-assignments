@@ -46,4 +46,4 @@ app.use((err, req, res, next) => {
 
 app.listen(process.env.PORT, () => {
     console.log(`The server is running on Port ${process.env.PORT}, Hell yeah`)
-})
+}) 
