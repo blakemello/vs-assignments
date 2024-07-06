@@ -117,33 +117,33 @@ export default function UserProvider(props) {
     }
 
 // Get All Issues
+     async function getAllIssues(){
+         try {
+             const res = await userAxios.get('/api/main/issues/all')
+             setUserState(prevUserState => {
+                 return {
+                     ...prevUserState,
+                     issues: res.data
+                 }
+             })
+         } catch (err) {
+             console.log(err)
+         }
+     }
+
     // async function getAllIssues(){
     //     try {
     //         const res = await userAxios.get('/api/main/issues/all')
-    //         setUserState(prevUserState => {
+    //         setAllIssues(prevAllIssues => {
     //             return {
-    //                 ...prevUserState,
-    //                 issues: res.data
+    //                 ...prevAllIssues,
+    //                 allIssues: res.data
     //             }
     //         })
     //     } catch (err) {
     //         console.log(err)
     //     }
     // }
-
-    async function getAllIssues(){
-        try {
-            const res = await userAxios.get('/api/main/issues/all')
-            setAllIssues(prevAllIssues => {
-                return {
-                    ...prevAllIssues,
-                    allIssues: res.data
-                }
-            })
-        } catch (err) {
-            console.log(err)
-        }
-    }
 
 // Add Issue
     async function addIssue(newIssue){

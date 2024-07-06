@@ -5,13 +5,14 @@ import IssueList from './IssueList';
 
 export default function Public(props) {
 
-    const { user, getAllIssues, issues } = useContext(UserContext)
+    const { user, getAllIssues, issues, allIssues } = useContext(UserContext)
 
     useEffect(() => {
         getAllIssues()
     }, [])
 
-    console.log(issues)
+    console.log(allIssues)
+    
 
     return ( 
         <>
