@@ -16,7 +16,7 @@ issueRouter.post('/', async (req, res, next) => {
 })
 
 // Get Single User's Issues
-issueRouter.get('/', async (req, res, next) => {
+issueRouter.get('/user', async (req, res, next) => {
     try {
         const foundIssue = await Issue.find({ userId: req.auth._id })
         return res.status(200).send(foundIssue)

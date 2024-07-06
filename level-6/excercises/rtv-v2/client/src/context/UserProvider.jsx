@@ -3,6 +3,14 @@ import axios from 'axios'
 
 export const UserContext = React.createContext()
 
+const userAxios = axios.create()
+
+userAxios.interceptors.request.use(config => {
+    const token = localStorage.getItem('token')
+    config.headers.Authorization = `Bearer ${token}`
+    return config
+})
+
 export default function UserProvider(props) {
 
     const initState = {
@@ -70,6 +78,92 @@ export default function UserProvider(props) {
             console.log(err)
         }
     }
+
+// Get User Issues
+    async function getUserIssues(){
+        try {
+            const res = await userAxios.get('/api/main/issues/user')
+            setUserState(prevUserState => {
+                return {
+                    ...prevUserState,
+                    issues: res.data
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+// Get All Issues
+    async function getAllIssues(){
+        try {
+            const res = await userAxios.get('/api/main/issues/all')
+            setUserState(prevUserState => {
+                return {
+                    ...prevUserState,
+                    issues: res.data
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+// Add Issue
+    async function addIssue(newIssue){
+        try {
+            const res = await userAxios.post('/api/main/issues', newIssue)
+            setUserState(prevUserState => {
+                return {
+                    ...prevUserState,
+                    issues: [...prevUserState.issues, res.data]
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+// Delete Issue
+    // async function deleteIssue(id){
+    //     try {
+    //         const res = await userAxios.delete(`/api/main/issues/${id}`)
+    //         setUserState(prevUserState => {
+    //             return {
+    //                 ...prevUserState.filter(userState => userState._id !== id)
+    //             }
+    //         })
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
+    async function deleteIssue(id){
+        try {
+            const res = await userAxios.delete(`/api/main/issues/${id}`)
+            setUserState(prevUserState => {
+                return {
+                    ...prevUserState,
+                    ...res.filter(userState => userState._id !== id)
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+// Edit Issue
+    async function editIssue(updates, id){
+        try {
+            const res = await userAxios.put(`/api/main/issues/${id}`, updates)
+            setUserState(prevUserState => {
+                return {
+                    ...prevUserState.map(userState => userState._id !== id ? userState : res.data)
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
    
     return (
         <UserContext.Provider 
@@ -78,6 +172,11 @@ export default function UserProvider(props) {
                 signup,
                 login,
                 logout,
+                getUserIssues,
+                getAllIssues,
+                addIssue,
+                deleteIssue,
+                editIssue,
             }}
         >
             {props.children}

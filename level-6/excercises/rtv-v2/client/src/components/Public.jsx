@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import { UserContext } from '../context/UserProvider';
+import IssueList from './IssueList';
 
-function Public() {
+
+export default function Public(props) {
+
+    const { user, getAllIssues, issues } = useContext(UserContext)
+
+    useEffect(() => {
+        getAllIssues()
+    }, [])
+
+    console.log(issues)
+
     return ( 
         <>
-            Public Page
+        <h2>Main Page</h2>
+        <IssueList 
+            issues = {issues}
+            
+        />
+        <p></p>
         </>
      );
 }
-
-export default Public;
