@@ -3,22 +3,30 @@ import { UserContext } from '../context/UserProvider';
 
 export default function Issue(props) {
 
-    const { user, title, description, imgUrl } = props
+    const { _id, title, description, imgUrl, userId, username } = props
 
-    const { deleteIssue, editIssue } = useContext(UserContext)
+    const { user, deleteIssue, editIssue } = useContext(UserContext)
 
     const [editToggle, setEditToggle] = useState(false)
 
+    let isUser = userId === user._id
+
+    // console.log('UserId: ', userId)
+    // console.log("user._id: ", user._id)
 
     return(
         <div>
-            <p>{user}</p>
+            <h4>User: {username}</h4>
             <h1>{title}</h1>
             <h4>{description}</h4>
             <img src={imgUrl} width={250}/>
             <br></br>
-            <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>Edit</button>
-            <button onClick={() => deleteIssue(issue._id)}>Delete</button>
+            { isUser && (
+                <>                
+                <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>Edit</button>
+                <button onClick={() => deleteIssue(_id)}>Delete</button>
+                </>
+            )  }
         </div>
     )
 }

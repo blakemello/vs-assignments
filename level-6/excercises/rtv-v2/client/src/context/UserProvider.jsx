@@ -145,6 +145,15 @@ export default function UserProvider(props) {
     //     }
     // }
 
+        // async function getAllIssues(){
+    //     try {
+    //         const res = await userAxios.get('/api/main/issues/all')
+    //         setAllIssues(res.data)
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
+
 // Add Issue
     async function addIssue(newIssue){
         try {
@@ -161,25 +170,13 @@ export default function UserProvider(props) {
     }
 
 // Delete Issue
-    // async function deleteIssue(id){
-    //     try {
-    //         const res = await userAxios.delete(`/api/main/issues/${id}`)
-    //         setUserState(prevUserState => {
-    //             return {
-    //                 ...prevUserState.filter(userState => userState._id !== id)
-    //             }
-    //         })
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
     async function deleteIssue(id){
         try {
             const res = await userAxios.delete(`/api/main/issues/${id}`)
             setUserState(prevUserState => {
                 return {
                     ...prevUserState,
-                    ...res.filter(userState => userState._id !== id)
+                    issues: prevUserState.issues.filter(userState => userState._id !== id)
                 }
             })
         } catch (err) {
@@ -193,7 +190,24 @@ export default function UserProvider(props) {
             const res = await userAxios.put(`/api/main/issues/${id}`, updates)
             setUserState(prevUserState => {
                 return {
-                    ...prevUserState.map(userState => userState._id !== id ? userState : res.data)
+                    ...prevUserState,
+                    issues: prevUserState.issues.map(userState => userState._id !== id ? userState : res.data)
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+// Upvote functionality
+    async function handleUpvote(issueId) {
+        try {
+            const res = await userAxios.put(`/api/main/issues/upvotes/${issueId}`)
+            setAllIssues(prevAllIssues => prevAllIssues.map(issue => issue._id === issueId ? res.data : issue))
+            setUserState(prevUserState => {
+                return{
+                    ...prevUserState,
+                    issues: prevUserState.issues.map(issue => issue._id === issueId ? res.data : issue)
                 }
             })
         } catch (err) {
@@ -216,6 +230,7 @@ export default function UserProvider(props) {
                 addIssue,
                 deleteIssue,
                 editIssue,
+                handleUpvote,
             }}
         >
             {props.children}

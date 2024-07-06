@@ -11,7 +11,7 @@ export default function Profile() {
         getUserIssues()
     }, [])
 
-    console.log(issues)
+    //console.log(issues)
 
 
     return ( 
