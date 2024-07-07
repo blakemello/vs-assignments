@@ -7,12 +7,6 @@ export default function IssueList(props) {
 
     const {issues} = props
 
-    const { deleteIssue, editIssue } = useContext(UserContext)
-
-    const [editToggle, setEditToggle] = useState(false)
-
-    console.log(editToggle)
-
     const issueElements = issues.map(issue => {
         return (
             <div key={issue._id}>

@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { UserContext } from '../context/UserProvider';
+import IssueForm from './IssueForm';
 
 export default function Issue(props) {
 
@@ -16,6 +17,8 @@ export default function Issue(props) {
 
     return(
         <div>
+        { !editToggle ?
+        <>
             <h4>User: {username}</h4>
             <h1>{title}</h1>
             <h4>{description}</h4>
@@ -32,6 +35,24 @@ export default function Issue(props) {
                 <button onClick={() => deleteIssue(_id)}>Delete</button>
                 </>
             )  }
+        </>
+        :
+        <>
+            <IssueForm 
+                title={title}
+                description={description}
+                imgUrl={imgUrl}
+                _id={_id}
+                btnText="Submit Edit"
+                submit={editIssue}
+                toggle={() => setEditToggle(prevToggle => !prevToggle)}            
+            />
+            <button
+                onClick={() => setEditToggle(prevToggle => !prevToggle)}
+            >Cancel
+            </button>
+        </>
+        }
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { UserContext } from '../context/UserProvider'
 
 export default function IssueForm(props) {
 
-    const { addIssue } = useContext(UserContext)
+    const { addIssue, editIssue } = useContext(UserContext)
 
     const initInputs = {
         title: props.title || '',
@@ -23,12 +23,12 @@ export default function IssueForm(props) {
 
     function handleSubmit(e){
         e.preventDefault()
-        addIssue(inputs)
+        addIssue(inputs) || editIssue(inputs)
         setInputs(initInputs)
         props.toggle && props.toggle()
     }
 
-    //console.log(inputs)
+    console.log(inputs)
 
     return(
         <form onSubmit={handleSubmit}>

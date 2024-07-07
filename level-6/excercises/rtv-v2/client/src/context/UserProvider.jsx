@@ -185,19 +185,21 @@ export default function UserProvider(props) {
     }
 
 // Edit Issue
-    async function editIssue(updates, id){
+    async function editIssue(id, updates){
         try {
-            const res = await userAxios.put(`/api/main/issues/${id}`, updates)
+            const res = await userAxios.put( `/api/main/issues/${id}`, updates )
+            console.log(updates)
             setUserState(prevUserState => {
                 return {
                     ...prevUserState,
-                    issues: prevUserState.issues.map(userState => userState._id !== id ? userState : res.data)
+                    issues: prevUserState.issues.map(issue => issue._id === id ? res.data : issue)
                 }
             })
         } catch (err) {
             console.log(err)
         }
     }
+
 
 // Upvote functionality
     async function handleUpvote(issueId) {
