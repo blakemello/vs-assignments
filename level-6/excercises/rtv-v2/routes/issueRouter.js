@@ -68,7 +68,7 @@ issueRouter.get('/all', async (req, res, next) => {
 })
 
 
-// Upvote/Downvote Route
+// Upvote/Downvote Routes
 issueRouter.put('/upvotes/:issueId', async (req, res, next) => {
     try {
         const updatedIssue = await Issue.findByIdAndUpdate(
@@ -79,6 +79,24 @@ issueRouter.put('/upvotes/:issueId', async (req, res, next) => {
             },
             { new: true }
         )
+        return res.status(201).send(updatedIssue)
+    } catch (err) {
+        res.status(500)
+        return next(err)
+    }
+})
+
+issueRouter.put('/downvotes/:issueId', async (req, res, next) => {
+    try {
+        const updatedIssue = await Issue.findByIdAndUpdate(
+            req.params.issueId,
+            {
+                $addToSet: { downvotes: req.auth._id},
+                $pull: { upvotes: req.auth._id }
+            },
+            { new: true }
+        )
+        return res.status(201).send(updatedIssue)
     } catch (err) {
         res.status(500)
         return next(err)

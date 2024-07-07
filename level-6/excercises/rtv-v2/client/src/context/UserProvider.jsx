@@ -214,6 +214,23 @@ export default function UserProvider(props) {
             console.log(err)
         }
     }
+
+// Downvote functionality
+    async function handleDownvote(issueId) {
+        try {
+            const res = await userAxios.put(`/api/main/issues/downvotes/${issueId}`)
+            setAllIssues(prevAllIssues => prevAllIssues.map(issue => issue._id === issueId ? res.data : issue))
+            setUserState(prevUserState => {
+                return{
+                    ...prevUserState,
+                    issues: prevUserState.issues.map(issue => issue._id === issueId ? res.data : issue)
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+   
    
     return (
         <UserContext.Provider 
@@ -231,6 +248,7 @@ export default function UserProvider(props) {
                 deleteIssue,
                 editIssue,
                 handleUpvote,
+                handleDownvote,
             }}
         >
             {props.children}

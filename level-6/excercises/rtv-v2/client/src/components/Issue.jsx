@@ -3,9 +3,9 @@ import { UserContext } from '../context/UserProvider';
 
 export default function Issue(props) {
 
-    const { _id, title, description, imgUrl, userId, username } = props
+    const { _id, title, description, imgUrl, userId, username, upvotes, downvotes } = props
 
-    const { user, deleteIssue, editIssue } = useContext(UserContext)
+    const { user, deleteIssue, editIssue, handleUpvote, handleDownvote } = useContext(UserContext)
 
     const [editToggle, setEditToggle] = useState(false)
 
@@ -20,6 +20,11 @@ export default function Issue(props) {
             <h1>{title}</h1>
             <h4>{description}</h4>
             <img src={imgUrl} width={250}/>
+            <br></br>
+            <p style= {{color: 'blue'}}>{upvotes.length}</p>
+            <button onClick={() => handleUpvote(_id)}>Upvote</button>
+            <button onClick={() => handleDownvote(_id)}>Downvote</button>
+            <p style= {{color: 'orange'}}>{downvotes.length}</p>
             <br></br>
             { isUser && (
                 <>                
