@@ -23,7 +23,7 @@ export default function IssueForm(props) {
 
     function handleSubmit(e){
         e.preventDefault()
-        addIssue(inputs) || editIssue(inputs)
+        props.submit(inputs, props._id)
         setInputs(initInputs)
         props.toggle && props.toggle()
     }

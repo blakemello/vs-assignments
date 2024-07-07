@@ -185,7 +185,7 @@ export default function UserProvider(props) {
     }
 
 // Edit Issue
-    async function editIssue(id, updates){
+    async function editIssue(updates, id){
         try {
             const res = await userAxios.put( `/api/main/issues/${id}`, updates )
             console.log(updates)

@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react'
-import {useNavigate, Link} from 'react-router-dom'
-import HomePage from './HomePage'
+import React, { useState, useContext } from 'react'
+import { Link } from 'react-router-dom'
 import Form from './Form'
 import { Context, ContextProvider } from '../Context';
 
 export default function Home(props){
 
-  const { all, getAll, addItem, editItem, deleteItem } = useContext(Context)
+  const { all, addItem, editItem, deleteItem } = useContext(Context)
   
   const [editToggle, setEditToggle] = useState(false)
 

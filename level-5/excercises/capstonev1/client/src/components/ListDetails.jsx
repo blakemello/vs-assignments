@@ -1,11 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import List from './List'
-import { Context, ContextProvider } from '../Context';
+import { Context } from '../Context';
 
 export default function ListDetails(props) {
 
-    const { all, getAll, addItem, editItem, deleteItem } = useContext(Context)
+    const { all } = useContext(Context)
 
     const { listId } = useParams()
     const foundList = all.find(list => list._id === listId)

@@ -21,6 +21,7 @@ export default function Profile() {
         </h1>
         <IssueForm 
             btnText="Add Issue"
+            submit={addIssue}
         />
         <h3> Issues: </h3>
         <IssueList 
