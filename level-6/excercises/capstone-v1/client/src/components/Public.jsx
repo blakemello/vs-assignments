@@ -1,11 +1,27 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
+import { UserContext } from '../context/UserProvider';
+import PostList from './PostList';
 
-function Public() {
+
+export default function Public(props) {
+
+    const { user, getAllPosts, posts, allPosts } = useContext(UserContext)
+
+    useEffect(() => {
+        getAllPosts()
+    }, [])
+
+    console.log(allPosts)
+    
+
     return ( 
         <>
-            Public Page
+        <h2>Main Page</h2>
+        <PostList 
+            posts = {posts}
+            
+        />
+        <p></p>
         </>
      );
 }
-
-export default Public;

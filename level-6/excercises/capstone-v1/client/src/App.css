@@ -2,7 +2,12 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  color: #BB86FC;
 }
 
 .logo {
@@ -39,4 +44,78 @@
 
 .read-the-docs {
   color: #888;
+}
+
+form {
+  padding: 10px;
+  margin: 5px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #BB86FC;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.about {
+  text-align: center;
+  color: #BB86FC;
+}
+
+.splash-page {
+  text-align: center;
+  color: #BB86FC;
+}
+
+.nav-bar {
+  text-align: center; 
+}
+
+a:link {
+  color:#BB86FC
+}
+
+a:visited {
+  color: #BB86FC;
+}
+
+.delete-btn {
+  background-color: #CF6679;
+  color: whitesmoke;
+}
+
+.add-btn {
+  background-color: #BB86FC;
+  color: #242424;
+}
+
+.edit-btn {
+  background-color: #3700B3;
+  color: whitesmoke;
+}
+
+.cancel-btn {
+  background-color: orangered;
+  color: whitesmoke
+}
+
+.dog-btn {
+  background-color: aqua;
+  color: #242424;
+}
+
+.dog-header {
+  color: aqua
+}
+
+.auth-div {
+  color: #242424;
 }

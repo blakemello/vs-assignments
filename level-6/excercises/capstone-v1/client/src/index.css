@@ -2,11 +2,9 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background: linear-gradient(90deg, #242424 1.18%, #343d3f 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -59,13 +57,13 @@ button:focus-visible {
   margin: 0;
 }
 
-#app {
+/* #app {
   height: 100vh;
   width: 100vw;
   background-color: rgb(248, 248, 245);
-}
+} */
 
-#navbar {
+/* #navbar {
   height: 10vh;
   width: 100vw;
   display: flex; 
@@ -74,9 +72,9 @@ button:focus-visible {
   gap: 50px;
   background-color: aliceblue;
   border: 1px solid darkgray;
-}
+} */
 
-#auth-div {
+/* #auth-div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,9 +82,9 @@ button:focus-visible {
   width: 100vw;
   padding-top: 50px;
  
-}
+} */
 
-#auth-form {
+ #auth-form {
   height: 40vh;
   width: 40vw;
   display: flex;
@@ -94,7 +92,6 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 50px;
-  border: 1px solid black;
   margin: 25px;
 }
 
@@ -107,6 +104,8 @@ button:focus-visible {
 button {
   height: 40px;
   width: 150px;
+  padding: 10px;
+  margin: 5px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -120,4 +119,74 @@ button {
   button {
     background-color: #f9f9f9;
   }
+}
+
+form {
+  padding: 10px;
+  margin: 5px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #BB86FC;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.about {
+  text-align: center;
+  color: #BB86FC;
+}
+
+.splash-page {
+  text-align: center;
+  color: #BB86FC;
+}
+
+.nav-bar {
+  text-align: center; 
+}
+
+a:link {
+  color:#BB86FC
+}
+
+a:visited {
+  color: #BB86FC;
+}
+
+.delete-btn {
+  background-color: #CF6679;
+  color: whitesmoke;
+}
+
+.add-btn {
+  background-color: #BB86FC;
+  color: #242424;
+}
+
+.edit-btn {
+  background-color: #3700B3;
+  color: whitesmoke;
+}
+
+.cancel-btn {
+  background-color: orangered;
+  color: whitesmoke
+}
+
+.dog-btn {
+  background-color: aqua;
+  color: #242424;
+}
+
+.dog-header {
+  color: aqua
 }

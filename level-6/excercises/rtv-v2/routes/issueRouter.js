@@ -1,5 +1,6 @@
 const express = require("express")
 const Issue = require('../models/issue')
+const Comment = require('../models/comment')
 const issueRouter = express.Router()
 
 // Post New Issue
@@ -97,6 +98,20 @@ issueRouter.put('/downvotes/:issueId', async (req, res, next) => {
             { new: true }
         )
         return res.status(201).send(updatedIssue)
+    } catch (err) {
+        res.status(500)
+        return next(err)
+    }
+})
+
+// Comment Route
+issueRouter.post('/comment/:issueId', async (req, res, next) => {
+    try {
+        req.body.issue = req.params.issueId
+        req.body.userId = req.auth._id
+        const newComment = new Comment(req.body)
+        const savedComment = await newComment.save()
+        return res.status(201).send(savedComment)
     } catch (err) {
         res.status(500)
         return next(err)

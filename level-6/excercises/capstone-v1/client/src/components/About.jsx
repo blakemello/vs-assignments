@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import aboutData from './AboutData'
 
 
-export default function About(props) {
+export default function About() {
     
 
     const abouts = aboutData.map(about => (

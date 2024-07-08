@@ -16,7 +16,7 @@ postRouter.post('/', async (req, res, next) => {
 })
 
 // Get Single User's Posts
-postRouter.get('/', async (req, res, next) => {
+postRouter.get('/user', async (req, res, next) => {
     try {
         const foundPost = await Post.find({ userId: req.auth._id })
         return res.status(200).send(foundPost)
@@ -26,7 +26,7 @@ postRouter.get('/', async (req, res, next) => {
     }
 })
 
-// Delete Single Post (works)
+// Delete Single Post
 postRouter.delete('/:postId', async (req, res, next) => {
     try {
         const deletedPost = await Post.findByIdAndDelete({

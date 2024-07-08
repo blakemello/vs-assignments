@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 export const UserContext = React.createContext()
@@ -24,6 +24,8 @@ export default function UserProvider(props) {
     const [ userState, setUserState ] = useState(initState)
 
     const [ allIssues, setAllIssues ] = useState([])
+
+    const [ allComments, setAllComments ] = useState([])
 
 // Signup function
     async function signup(creds){
@@ -233,6 +235,14 @@ export default function UserProvider(props) {
         }
     }
    
+    async function addComment(issueId) {
+        try {
+            const res = await userAxios.post(`/api/main/issues/comments/${issueId}`)
+            setAllComments()
+        } catch (err) {
+            console.log(err)
+        }
+    }
    
     return (
         <UserContext.Provider 

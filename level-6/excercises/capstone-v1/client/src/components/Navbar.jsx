@@ -8,7 +8,7 @@ function Navbar(props) {
     return ( 
         <div id = "navbar">
         <Link to = "/profile"><button>Profile</button></Link>
-        <Link to = "/public"><button>Public</button></Link>
+        <Link to = '/about'><button>About</button></Link>
         <Link to = "/"><button onClick={logout}>Logout</button></Link>
         </div>
      );
