@@ -102,8 +102,6 @@ button:focus-visible {
 }
 
 button {
-  height: 40px;
-  width: 150px;
   padding: 10px;
   margin: 5px;
 }

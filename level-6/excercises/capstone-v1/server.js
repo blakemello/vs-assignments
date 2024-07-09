@@ -28,7 +28,7 @@ connectToDb()
 
 //Routes
 app.get("/", (req, res) => {
-    res.send("Test RTV, Please Ignore")
+    res.send("Test Capstone, Please Ignore")
 })
 app.use('/api/auth', require('./routes/authRouter.js'))
 app.use('/api/main', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
