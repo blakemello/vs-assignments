@@ -133,28 +133,14 @@ export default function UserProvider(props) {
          }
      }
 
-    // async function getAllIssues(){
-    //     try {
-    //         const res = await userAxios.get('/api/main/issues/all')
-    //         setAllIssues(prevAllIssues => {
-    //             return {
-    //                 ...prevAllIssues,
-    //                 allIssues: res.data
-    //             }
-    //         })
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
-        // async function getAllIssues(){
-    //     try {
-    //         const res = await userAxios.get('/api/main/issues/all')
-    //         setAllIssues(res.data)
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+    //   async function getAllIssues(){
+    //       try {
+    //           const res = await userAxios.get('/api/main/issues/all')
+    //           setAllIssues(res.data)
+    //       } catch (err) {
+    //           console.log(err)
+    //       }
+    //   }
 
 // Add Issue
     async function addIssue(newIssue){
@@ -234,21 +220,59 @@ export default function UserProvider(props) {
             console.log(err)
         }
     }
-   
-    async function addComment(issueId) {
+
+
+// Get all comments
+async function getAllComments(){
+    try {
+        const res = await userAxios.get('/api/main/comments')
+        setAllComments(prevUserState => {
+            return {
+                ...prevUserState,
+                comments: res.data
+            }
+        })
+    } catch (err) {
+        console.log(err)
+    }
+} 
+
+// Add Comments
+    async function addComment(issueId, comments) {
         try {
-            const res = await userAxios.post(`/api/main/issues/comments/${issueId}`)
-            setAllComments()
+            const res = await userAxios.post(`/api/main/comments/${issueId}`, comments)
+            setAllComments(prevAllComments => {
+                return {
+                    ...prevAllComments,
+                    comments: [...prevAllComments.comments, res.data]
+                }
+            })
         } catch (err) {
             console.log(err)
         }
     }
-   
+
+    async function removeCommet(issueId) {
+        try {
+            const res = await userAxios.post(`/api/main/comments/${issueId}`, comments)
+            setAllComments(prevAllComments => {
+                return {
+                    ...prevAllComments,
+                    comments: [...prevAllComments.comments, res.data]
+                }
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    }
+     
+
     return (
         <UserContext.Provider 
             value = {{
                 ...userState,
-                ...allIssues,
+                allIssues,
+                allComments,
                 handleAuthErr,
                 resetAuthErr,
                 signup,
@@ -261,6 +285,8 @@ export default function UserProvider(props) {
                 editIssue,
                 handleUpvote,
                 handleDownvote,
+                addComment,
+                getAllComments,
             }}
         >
             {props.children}

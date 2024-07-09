@@ -28,7 +28,6 @@ export default function IssueForm(props) {
         props.toggle && props.toggle()
     }
 
-    console.log(inputs)
 
     return(
         <form onSubmit={handleSubmit}>

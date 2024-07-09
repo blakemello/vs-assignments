@@ -1,10 +1,12 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { UserContext } from '../context/UserProvider';
 import IssueForm from './IssueForm';
+import CommentContainer from './CommentContainer'
+import moment from 'moment';
 
 export default function Issue(props) {
 
-    const { _id, title, description, imgUrl, userId, username, upvotes, downvotes } = props
+    const { _id, title, description, imgUrl, userId, username, upvotes, downvotes, createdAt } = props
 
     const { user, deleteIssue, editIssue, handleUpvote, handleDownvote } = useContext(UserContext)
 
@@ -12,23 +14,25 @@ export default function Issue(props) {
 
     let isUser = userId === user._id
 
-    // console.log('UserId: ', userId)
-    // console.log("user._id: ", user._id)
+    const timeStamp = moment(createdAt).fromNow()
+
 
     return(
         <div>
         { !editToggle ?
         <>
-            <h4>User: {username}</h4>
+            <h3>User: {username}</h3>
             <h1>{title}</h1>
             <h4>{description}</h4>
             <img src={imgUrl} width={250}/>
+            <p>{timeStamp}</p>
             <br></br>
-            <p style= {{color: 'blue'}}>{upvotes.length}</p>
+            <p style= {{color: 'blue'}}>Upvotes: {upvotes.length}</p>
             <button onClick={() => handleUpvote(_id)}>Upvote</button>
             <button onClick={() => handleDownvote(_id)}>Downvote</button>
-            <p style= {{color: 'orange'}}>{downvotes.length}</p>
+            <p style= {{color: 'orange'}}>Downvotes: {downvotes.length}</p>
             <br></br>
+            <CommentContainer issueId={_id} />
             { isUser && (
                 <>                
                 <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>Edit</button>

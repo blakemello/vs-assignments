@@ -5,10 +5,11 @@ import IssueForm from './IssueForm';
 
 export default function Profile() {
 
-    const { user, getUserIssues, issues, addIssue } = useContext(UserContext)
+    const { user, getUserIssues, issues, addIssue, getAllComments } = useContext(UserContext)
 
     useEffect(() => {
         getUserIssues()
+        getAllComments()
     }, [])
 
     //console.log(issues)
